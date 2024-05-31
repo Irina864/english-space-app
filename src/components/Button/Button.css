@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
+.delete {
+  font-family: font1;
+  font-size: 1.5vw;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: rgb(131, 17, 17);
+}
+
+.edit {
+  font-family: font1;
+  font-size: 1.5vw;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: rgb(255, 217, 0);
+}
+
+.save {
+  font-family: font1;
+  font-size: 1.5vw;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: rgb(15, 113, 62);
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+}
+.btn:hover {
+  color: #000c4f;
+  background-color: #ffffff;
+  border: 1px solid #4756af;
+  cursor: pointer;
+}/*# sourceMappingURL=Button.css.map */

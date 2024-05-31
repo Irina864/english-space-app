@@ -1,0 +1,16 @@
+[
+    {
+        "word": "cat",
+        "transcription": "kæt",
+        "translation": "кошка",
+        "theme": "животные",
+        "boolean": true
+    },
+    {
+        "word": "house",
+        "transcription": "haʊs",
+        "translation": "дом",
+        "theme": "жилье",
+        "boolean": false
+    }
+]

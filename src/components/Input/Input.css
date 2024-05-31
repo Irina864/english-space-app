@@ -1,29 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
-.topic {
+.input {
   display: grid;
   grid-template-columns: 70% 30%;
-  padding: 10px 0;
   gap: 1%;
-  background-color: #e2e5f4;
+  padding: 10px 0;
+  background-color: #919cd8;
+  border-top: 1px solid #4756af;
   border-bottom: 1px solid #4756af;
 }
-.topic .topic__word {
+.input .input__word {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
   font-family: font2;
   font-size: 1.8vw;
   color: #000c4f;
   font-weight: 500;
 }
-.topic .topic__word .topic_item {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.input .input__word .input_item {
+  border: 1px solid #4756af;
+  border-radius: 10px;
+  font-family: font2;
+  font-size: 1.8vw;
+  color: #000c4f;
+  font-weight: 500;
 }
-.topic .topic__buttons {
+.input .input__buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-}/*# sourceMappingURL=Topic.css.map */
+}/*# sourceMappingURL=Input.css.map */

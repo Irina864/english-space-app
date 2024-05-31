@@ -1,0 +1,8 @@
+@import '../../template';
+@import '../../variables';
+
+.header {
+    display: flex;
+    @include flex(row, center, center);
+    @include font(font1, 1.8vw, $colorTextDark, 500);
+}

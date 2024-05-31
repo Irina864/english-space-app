@@ -1,0 +1,22 @@
+$colorTextLight: #ffffff;
+$colorTextDark: #000c4f;
+$colorBackgroundLight: #e2e5f4;
+$colorBackgroundMedium: #919cd8;
+$colorBackgroundDark: #4756af;
+$font1: 'Inter', sans-serif;
+$font2: 'Roboto', sans-serif;
+$colorBtnEdit: rgb(255, 217, 0);
+$colorBtnDelete: rgb(131, 17, 17);
+$colorBtnSave: rgb(15, 113, 62);
+
+@mixin font($ff, $fs, $fc, $fw) {
+    font-family: $ff;
+    font-size: $fs;
+    color: $fc;
+    font-weight: $fw;
+}
+@mixin flex($fd, $jc, $ai) {
+    flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
+}
