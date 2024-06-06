@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
 .topic {
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 80% 20%;
   padding: 10px 0;
   gap: 1%;
-  background-color: #e2e5f4;
+  background-color: #f0f3fd;
   border-bottom: 1px solid #4756af;
 }
 .topic .topic__word {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  font-family: font2;
+  grid-template-columns: repeat(4, 25%);
+  font-family: "Roboto", sans-serif;
   font-size: 1.8vw;
   color: #000c4f;
   font-weight: 500;

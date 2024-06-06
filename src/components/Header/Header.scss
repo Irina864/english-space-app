@@ -4,5 +4,5 @@
 .header {
     display: flex;
     @include flex(row, center, center);
-    @include font(font1, 1.8vw, $colorTextDark, 500);
+    @include font($font1, 1.8vw, $colorTextDark, 500);
 }

@@ -1,18 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
 .input {
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 80% 20%;
   gap: 1%;
   padding: 10px 0;
   background-color: #919cd8;
-  border-top: 1px solid #4756af;
   border-bottom: 1px solid #4756af;
 }
 .input .input__word {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3%;
-  font-family: font2;
+  grid-template-columns: repeat(4, 24%);
+  justify-content: space-around;
+  font-family: "Roboto", sans-serif;
   font-size: 1.8vw;
   color: #000c4f;
   font-weight: 500;
@@ -20,7 +19,7 @@
 .input .input__word .input_item {
   border: 1px solid #4756af;
   border-radius: 10px;
-  font-family: font2;
+  font-family: "Roboto", sans-serif;
   font-size: 1.8vw;
   color: #000c4f;
   font-weight: 500;

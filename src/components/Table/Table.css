@@ -1,1 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");/*# sourceMappingURL=Table.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
+.main__table {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 90%;
+  border: 3px solid #4756af;
+  border-radius: 10px;
+}
+
+.main__card {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+.main__card .main__cardchangerbtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.mode {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1% 0;
+}/*# sourceMappingURL=Table.css.map */
