@@ -8,7 +8,6 @@ function Topic(props) {
     const handleEditingWordMode = () => {
         setEditingWordMode(!editingWordMode);
     };
-    console.log(editingWordMode);
     return editingWordMode ? (
         <Input
             key={props.id}
