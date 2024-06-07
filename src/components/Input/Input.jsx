@@ -5,10 +5,12 @@ import './Input.css';
 
 function Input(props) {
     const [returnedValue, setReturnedValue] = useState(false);
-    const [inputValueEng, setInputValueEng] = useState('');
-    const [inputValueTranscription, setInputValueTranscription] = useState('');
-    const [inputValueRus, setInputValueRus] = useState('');
-    const [inputValueTag, setInputValueTag] = useState('');
+    const [inputValueEng, setInputValueEng] = useState(props.english);
+    const [inputValueTranscription, setInputValueTranscription] = useState(
+        props.transcription
+    );
+    const [inputValueRus, setInputValueRus] = useState(props.russian);
+    const [inputValueTag, setInputValueTag] = useState(props.tags);
     const handleReturnedValue = () => {
         setReturnedValue(!returnedValue);
     };
