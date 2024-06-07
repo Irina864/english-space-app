@@ -1,22 +1,23 @@
+import { useState } from 'react';
 import Topic from '../Topic/Topic';
 import Input from '../Input/Input';
 import Card from '../Card/Card';
-import { useState } from 'react';
+import Button from '../Button/Button';
+import ImageButton from '../ImageButton/ImageButton';
+import arrowLeftImage from '../../images/arrow-left.png';
+import arrowRightImage from '../../images/arrow-right.png';
 import data from '../../data/data.json';
 import './Table.css';
-import Button from '../Button/Button';
 
 function Table() {
     const [selectedPageMode, setSelectedPageMode] = useState(false);
-    // const [editingMode, setEditingMode] = useState(false);
+
     const [showedCardIndex, setShowedCardIndex] = useState(0);
     // const [selectedCard, setSelectedCard] = useState(false);
     // const handleSelectedCard = () => {
     //     setSelectedCard(!selectedCard);
     // };
-    // const handleEditingMode = () => {
-    //     setEditingMode(!editingMode);
-    // };
+
     const handleSelectedPageMode = () => {
         setSelectedPageMode(!selectedPageMode);
     };
@@ -50,7 +51,11 @@ function Table() {
                         className="main__cardchangerbtn"
                         onClick={handleShowedCardIndexLeft}
                     >
-                        <Button name="left" theme="show" />
+                        <ImageButton
+                            theme="slider"
+                            src={arrowLeftImage}
+                            alt="arrow-left"
+                        />
                     </div>
                     <Card
                         key={data[showedCardIndex].id}
@@ -63,7 +68,11 @@ function Table() {
                         className="main__cardchangerbtn"
                         onClick={handleShowedCardIndexRigth}
                     >
-                        <Button name="right" theme="show" />
+                        <ImageButton
+                            theme="slider"
+                            src={arrowRightImage}
+                            alt="arrow-right"
+                        />
                     </div>
                 </section>
             ) : (
@@ -100,40 +109,6 @@ function Table() {
                     )}
                 </section>
             )}
-            {/* <section className="main__card">
-                <Card
-                    key={data[0].id}
-                    english={data[0].english}
-                    transcription={data[0].transcription}
-                    russian={data[0].russian}
-                    tags={data[0].tags}
-                />
-            </section>
-            <section className="main__table">
-                <Input />
-                {data.map((i) =>
-                    i.boolean ? (
-                        <div onClick={handleCheckedCard}>
-                            <Topic
-                                key={i.id}
-                                english={i.english}
-                                transcription={i.transcription}
-                                russian={i.russian}
-                                tags={i.tags}
-                                boolean={i.boolean}
-                            />
-                        </div>
-                    ) : (
-                        <Input
-                            key={i.id}
-                            english={i.english}
-                            transcription={i.transcription}
-                            russian={i.russian}
-                            tags={i.tags}
-                        />
-                    )
-                )}
-            </section> */}
         </main>
     );
 }

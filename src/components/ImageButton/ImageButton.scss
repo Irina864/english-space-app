@@ -1,0 +1,14 @@
+@import '../../template';
+@import '../../variables';
+
+.imagebtn {
+    background-color: transparent;
+    border: none;
+    .imagebtn__image {
+        transition: 0.5s;
+        display: block;
+        &:hover {
+            transform: scale(1.3);
+        }
+    }
+}
