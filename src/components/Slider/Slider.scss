@@ -1,0 +1,12 @@
+@import '../../template';
+@import '../../variables';
+
+.slider {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    width: 100%;
+    .slider__cardchangerbtn {
+        display: flex;
+        @include flex(row, center, center);
+    }
+}

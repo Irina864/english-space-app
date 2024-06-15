@@ -17,7 +17,7 @@ function Topic(props) {
             tags={props.tags}
         />
     ) : (
-        <div className="topic">
+        <div className="topic" onClick={() => props.clickedCard(props.index)}>
             <div className="topic__word">
                 <div className="topic__eng topic_item">{props.english}</div>
                 <div className="topic__transcription topic_item">

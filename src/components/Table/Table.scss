@@ -9,12 +9,8 @@
     border-radius: 10px;
 }
 .main__card {
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    .main__cardchangerbtn {
-        display: flex;
-        @include flex(row, center, center);
-    }
+    display: flex;
+    @include flex(row, center, center);
 }
 .mode {
     display: flex;
