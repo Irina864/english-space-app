@@ -5,8 +5,10 @@
     background-color: transparent;
     border: none;
     .imagebtn__image {
-        transition: 0.5s;
         display: block;
+        max-width: 100%;
+        transition: 0.5s;
+
         &:hover {
             transform: scale(1.3);
         }

@@ -9,13 +9,7 @@ function Topic(props) {
         setEditingWordMode(!editingWordMode);
     };
     return editingWordMode ? (
-        <Input
-            key={props.id}
-            english={props.english}
-            transcription={props.transcription}
-            russian={props.russian}
-            tags={props.tags}
-        />
+        <Input {...props} />
     ) : (
         <div className="topic" onClick={() => props.clickedCard(props.index)}>
             <div className="topic__word">

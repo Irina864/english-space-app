@@ -1,14 +1,13 @@
 import Button from '../Button/Button';
 import { useState } from 'react';
 import './Card.css';
+import image from '../../images/kitten.png';
 
 function Card(props) {
     const [showedTranslation, setShowedTranslation] = useState(false);
-
     const handleShowedTranslation = () => {
         setShowedTranslation(!showedTranslation);
     };
-
     return (
         <div className="card">
             <div className="card__word">
@@ -16,6 +15,9 @@ function Card(props) {
                 <div className="card__transcription card_item">
                     {props.transcription}
                 </div>
+            </div>
+            <div className="card__imagewrap">
+                <img className="card__image" src={image} alt="Card cat" />
             </div>
             <div className="card__check">
                 {showedTranslation ? (

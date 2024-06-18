@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&display=swap");
+.missing {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5%;
+  padding: 5% 5%;
+  height: 100vh;
+}
+.missing .missing__imagewrap {
+  max-width: 50%;
+}
+.missing .missing__imagewrap .missing__image {
+  width: 100%;
+}
+.missing .missing__title {
+  font-family: "Inter", sans-serif;
+  font-size: 3vw;
+  color: #002e7e;
+  font-weight: 600;
+}
+.missing .missing__text {
+  font-family: "Inter", sans-serif;
+  font-size: 2vw;
+  color: #002e7e;
+  font-weight: 400;
+}/*# sourceMappingURL=MissingPage.css.map */

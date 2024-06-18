@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&display=swap");
 .btn {
   padding: 5px 10px;
   border: 1px solid transparent;
   border-radius: 8px;
 }
 .btn:hover {
-  color: #000c4f;
+  color: #002e7e;
   background-color: #ffffff;
-  border: 1px solid #4756af;
+  border: 1px solid #3e6fad;
   cursor: pointer;
 }
 
@@ -40,8 +41,8 @@
   font-size: 3.5vw;
   color: #ffffff;
   font-weight: 600;
-  background-color: #919cd8;
+  background-color: #6c95e7;
   padding: 8px 18px;
-  border: 2px solid #4756af;
+  border: 2px solid #3e6fad;
   border-radius: 13px;
 }/*# sourceMappingURL=Button.css.map */

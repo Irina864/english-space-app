@@ -1,19 +1,14 @@
 @import '../../template';
 @import '../../variables';
+
 .main__table {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    max-width: 90%;
+    margin: 0 5%;
     border: 3px solid $colorBackgroundDark;
     border-radius: 10px;
 }
 .main__card {
     display: flex;
     @include flex(row, center, center);
-}
-.mode {
-    display: flex;
-    @include flex(row, center, center);
-    padding: 1% 0;
 }

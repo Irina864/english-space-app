@@ -28,14 +28,7 @@ function Input(props) {
     };
     let originalBoolean = false;
     return returnedValue ? (
-        <Topic
-            key={props.id}
-            english={props.english}
-            transcription={props.transcription}
-            russian={props.russian}
-            tags={props.tags}
-            boolean={originalBoolean}
-        />
+        <Topic {...props} boolean={originalBoolean} />
     ) : (
         <div className="input">
             <div className="input__word">

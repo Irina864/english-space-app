@@ -2,5 +2,13 @@
 @import '../../variables';
 
 .App {
-    background-color: $colorBackgroundWhite;
+    display: grid;
+    grid-template-rows: 20% 80%;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: linear-gradient(
+        0deg,
+        $colorBackgroundLight 0%,
+        transparent 100%
+    );
 }

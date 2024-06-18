@@ -1,0 +1,24 @@
+@import '../../template';
+@import '../../variables';
+.nav {
+    max-height: 200px;
+    display: flex;
+    @include flex(row, space-around, center);
+    margin: 0;
+
+    .nav__item {
+        padding: 0.25% 2%;
+        background-color: $colorBackgroundMedium;
+        border: 2px solid $colorBackgroundDark;
+        border-radius: 10px;
+        @include font($font3, 3vw, $colorTextLight, 700);
+        text-decoration: none;
+        &:hover {
+            color: $colorTextDark;
+            background-color: $colorTextLight;
+            border: 1px solid $colorBackgroundDark;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+    }
+}

@@ -2,19 +2,17 @@
 @import '../../variables';
 .card {
     display: grid;
-    grid-template-rows: 70% 30%;
+    grid-template-rows: 50% 30% 20%;
     margin: 0 auto;
-    padding: 10% 0;
-    width: 80%;
-    min-height: 65vh;
+    width: 100%;
+    height: 80%;
     border: 3px solid $colorBackgroundDark;
     border-radius: 10px;
     background-color: $colorBackgroundLight;
     .card__word {
         grid-area: 1/1/2/2;
         display: flex;
-        @include flex(column, center, center);
-
+        @include flex(column, flex-end, center);
         .card__eng {
             @include font($font2, 8vw, $colorTextMedium, 900);
         }
@@ -22,12 +20,25 @@
             @include font($font2, 3.5vw, $colorTextDark, 580);
         }
     }
-
-    .card__check {
+    .card__imagewrap {
         grid-area: 2/1/3/2;
         display: flex;
+        @include flex(column, flex-end, center);
+        max-width: 50%;
+        margin: 0 auto;
+        .card__image {
+            max-height: 100%;
+            max-width: 100%;
+            &:hover {
+                transition: 1s;
+                transform: scale(1.05);
+            }
+        }
+    }
+    .card__check {
+        grid-area: 3/1/4/2;
+        display: flex;
         @include flex(column, flex-start, center);
-
         .card__rus {
             @include font($font2, 5vw, $colorTextMedium, 700);
         }

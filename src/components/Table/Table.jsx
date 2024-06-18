@@ -1,31 +1,26 @@
 import { useState } from 'react';
 import Topic from '../Topic/Topic';
 import Input from '../Input/Input';
-import Button from '../Button/Button';
-import data from '../../data/data.json';
 import './Table.css';
 import Slider from '../Slider/Slider';
 
-function Table() {
-    const [selectedPageMode, setSelectedPageMode] = useState(false);
+function Table(props) {
+    const data = props.data;
+    const [selectedPageMode, setSelectedPageMode] = useState(null);
     const [clickedIndex, setClickedIndex] = useState(0);
+    // const navigate = useNavigate();
+    // const handleSelectedPageMode = () => {
+    //     const currentPath = window.location.pathname;
+    //     const newPath = `${currentPath}/cards`;
+    //     navigate(newPath);
+    // };
     const handleSelectedPageMode = () => {
         setSelectedPageMode(!selectedPageMode);
     };
     let originalBoolean = false;
+
     return (
         <main className="main">
-            <div className="mode">
-                {selectedPageMode ? (
-                    <div className="mode_btn" onClick={handleSelectedPageMode}>
-                        <Button name="Show word table" theme="show" />
-                    </div>
-                ) : (
-                    <div className="mode_btn" onClick={handleSelectedPageMode}>
-                        <Button name="Show cards" theme="show" />
-                    </div>
-                )}
-            </div>
             {selectedPageMode ? (
                 <section className="main__card">
                     <Slider data={data} index={clickedIndex} />
@@ -42,6 +37,7 @@ function Table() {
                                 transcription={i.transcription}
                                 russian={i.russian}
                                 tags={i.tags}
+                                tags_json={i.tags_json}
                                 boolean={originalBoolean}
                                 clickedCard={(clickedIndex) =>
                                     setClickedIndex(clickedIndex)

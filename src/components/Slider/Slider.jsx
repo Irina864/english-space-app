@@ -26,11 +26,7 @@ function Slider(props = 'Server unavailable now') {
                 className="slider__cardchangerbtn"
                 onClick={handleShowedCardIndexLeft}
             >
-                <ImageButton
-                    theme="slider"
-                    src={arrowLeftImage}
-                    alt="arrow-left"
-                />
+                <ImageButton src={arrowLeftImage} alt="arrow-left" />
             </div>
             <Card
                 key={data[showedCardIndex].id}
@@ -38,16 +34,13 @@ function Slider(props = 'Server unavailable now') {
                 transcription={data[showedCardIndex].transcription}
                 russian={data[showedCardIndex].russian}
                 tags={data[showedCardIndex].tags}
+                tags_json={data[showedCardIndex].tags_json}
             />
             <div
                 className="slider__cardchangerbtn"
                 onClick={handleShowedCardIndexRigth}
             >
-                <ImageButton
-                    theme="slider"
-                    src={arrowRightImage}
-                    alt="arrow-right"
-                />
+                <ImageButton src={arrowRightImage} alt="arrow-right" />
             </div>
         </div>
     );

@@ -1,11 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&display=swap");
 .header {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  align-items: center;
+  gap: 1%;
+  padding: 0 5%;
+  background-color: #ddeafc;
+  max-height: 200px;
+}
+.header .header__image-wrap {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Inter", sans-serif;
-  font-size: 1.8vw;
-  color: #000c4f;
-  font-weight: 500;
+  max-height: 200px;
+  height: 100%;
+  max-width: 100%;
+}
+.header .header__image-wrap .header__image {
+  max-height: 150%;
+  max-width: 150%;
+}
+.header .header__title-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.header .header__title-wrap .header__title {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5vw;
+  color: #002e7e;
+  font-weight: 800;
+  line-height: 50px;
 }/*# sourceMappingURL=Header.css.map */
