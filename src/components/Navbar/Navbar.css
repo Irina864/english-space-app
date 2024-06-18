@@ -4,25 +4,24 @@
   max-height: 200px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 7%;
   margin: 0;
 }
 .nav .nav__item {
   padding: 0.25% 2%;
-  background-color: #6c95e7;
-  border: 2px solid #3e6fad;
-  border-radius: 10px;
   font-family: "Cormorant Garamond", serif;
   font-size: 3vw;
-  color: #ffffff;
+  color: #3b75c5;
   font-weight: 700;
   text-decoration: none;
 }
 .nav .nav__item:hover {
-  color: #002e7e;
-  background-color: #ffffff;
-  border: 1px solid #3e6fad;
-  cursor: pointer;
+  color: #ffffff;
+  text-shadow: 0px 2px 0 rgb(35, 55, 144), 0px -1px 0 rgb(35, 55, 144), 1px 0px 0 rgb(35, 55, 144), -1px 0px 0 rgb(35, 55, 144), 1px 1px 0 rgb(35, 55, 144), 1px -1px 0 rgb(35, 55, 144), -1px 1px 0 rgb(35, 55, 144), -1px -1px 0 rgb(35, 55, 144);
+  -webkit-text-shadow: 0px 2px 0 rgb(35, 55, 144), 0px -1px 0 rgb(35, 55, 144), 1px 0px 0 rgb(35, 55, 144), -1px 0px 0 rgb(35, 55, 144), 1px 1px 0 rgb(35, 55, 144), 1px -1px 0 rgb(35, 55, 144), -1px 1px 0 rgb(35, 55, 144), -1px -1px 0 rgb(35, 55, 144);
+  -moz-text-shadow: 0px 2px 0 rgb(35, 55, 144), 0px -1px 0 rgb(35, 55, 144), 1px 0px 0 rgb(35, 55, 144), -1px 0px 0 rgb(35, 55, 144), 1px 1px 0 rgb(35, 55, 144), 1px -1px 0 rgb(35, 55, 144), -1px 1px 0 rgb(35, 55, 144), -1px -1px 0 rgb(35, 55, 144);
   transform: scale(1.05);
+  cursor: pointer;
 }/*# sourceMappingURL=Navbar.css.map */
