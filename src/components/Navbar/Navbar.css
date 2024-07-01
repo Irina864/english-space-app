@@ -19,9 +19,9 @@
 }
 .nav .nav__item:hover {
   color: #ffffff;
-  text-shadow: 0px 2px 0 rgb(35, 55, 144), 0px -1px 0 rgb(35, 55, 144), 1px 0px 0 rgb(35, 55, 144), -1px 0px 0 rgb(35, 55, 144), 1px 1px 0 rgb(35, 55, 144), 1px -1px 0 rgb(35, 55, 144), -1px 1px 0 rgb(35, 55, 144), -1px -1px 0 rgb(35, 55, 144);
   -webkit-text-shadow: 0px 2px 0 rgb(35, 55, 144), 0px -1px 0 rgb(35, 55, 144), 1px 0px 0 rgb(35, 55, 144), -1px 0px 0 rgb(35, 55, 144), 1px 1px 0 rgb(35, 55, 144), 1px -1px 0 rgb(35, 55, 144), -1px 1px 0 rgb(35, 55, 144), -1px -1px 0 rgb(35, 55, 144);
   -moz-text-shadow: 0px 2px 0 rgb(35, 55, 144), 0px -1px 0 rgb(35, 55, 144), 1px 0px 0 rgb(35, 55, 144), -1px 0px 0 rgb(35, 55, 144), 1px 1px 0 rgb(35, 55, 144), 1px -1px 0 rgb(35, 55, 144), -1px 1px 0 rgb(35, 55, 144), -1px -1px 0 rgb(35, 55, 144);
+  text-shadow: 0px 2px 0 rgb(35, 55, 144), 0px -1px 0 rgb(35, 55, 144), 1px 0px 0 rgb(35, 55, 144), -1px 0px 0 rgb(35, 55, 144), 1px 1px 0 rgb(35, 55, 144), 1px -1px 0 rgb(35, 55, 144), -1px 1px 0 rgb(35, 55, 144), -1px -1px 0 rgb(35, 55, 144);
   transform: scale(1.05);
   cursor: pointer;
 }/*# sourceMappingURL=Navbar.css.map */

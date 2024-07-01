@@ -2,22 +2,22 @@
 @import '../../variables';
 
 .topic {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  padding: 10px 0;
+  background-color: $colorBackgroundLight;
+  border-bottom: 1px solid $colorBackgroundDark;
+  .topic__word {
     display: grid;
-    grid-template-columns: 80% 20%;
-    padding: 10px 0;
-    background-color: $colorBackgroundLight;
-    border-bottom: 1px solid $colorBackgroundDark;
-    .topic__word {
-        display: grid;
-        grid-template-columns: repeat(4, 25%);
-        @include font($font2, 1.8vw, $colorTextDark, 500);
-        .topic_item {
-            display: flex;
-            @include flex(row, center, center);
-        }
+    grid-template-columns: repeat(4, 25%);
+    @include font($font2, 1.8vw, $colorTextDark, 500);
+    .topic_item {
+      display: flex;
+      @include flex(row, center, center);
     }
-    .topic__buttons {
-        display: flex;
-        @include flex(row, space-around, center);
-    }
+  }
+  .topic__buttons {
+    display: flex;
+    @include flex(row, space-around, center);
+  }
 }

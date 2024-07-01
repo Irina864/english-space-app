@@ -8,21 +8,21 @@ import data from '../../data/data.json';
 import './App.css';
 
 function App() {
-    const favicon = document.querySelector('link[rel="icon"]');
-    document.title = `English`;
-    favicon.href = '../../images/favicon.ico';
-    return (
-        <Router>
-            <div className="App">
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Table data={data} />} />
-                    <Route path="/cards" element={<Slider data={data} />} />
-                    <Route path="*" element={<MissingPage />} />
-                </Routes>
-            </div>
-        </Router>
-    );
+  const favicon = document.querySelector('link[rel="icon"]');
+  document.title = 'English';
+  favicon.href = '../../images/favicon.ico';
+  return (
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Table data={data} />} />
+          <Route path="/cards/:index" element={<Slider data={data} />} />
+          <Route path="*" element={<MissingPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;

@@ -2,24 +2,24 @@
 @import '../../variables';
 
 .input {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  padding: 10px 0;
+  background-color: $colorBackgroundMedium;
+  border-bottom: 1px solid $colorBackgroundDark;
+  .input__word {
     display: grid;
-    grid-template-columns: 80% 20%;
-    padding: 10px 0;
-    background-color: $colorBackgroundMedium;
-    border-bottom: 1px solid $colorBackgroundDark;
-    .input__word {
-        display: grid;
-        grid-template-columns: repeat(4, 24%);
-        justify-content: space-around;
-        @include font($font2, 1.8vw, $colorTextDark, 500);
-        .input_item {
-            border: 1px solid $colorBackgroundDark;
-            border-radius: 10px;
-            @include font($font2, 1.8vw, $colorTextDark, 500);
-        }
+    grid-template-columns: repeat(4, 24%);
+    justify-content: space-around;
+    @include font($font2, 1.8vw, $colorTextDark, 500);
+    .input_item {
+      border: 1px solid $colorBackgroundDark;
+      border-radius: 10px;
+      @include font($font2, 1.8vw, $colorTextDark, 500);
     }
-    .input__buttons {
-        display: flex;
-        @include flex(row, space-around, center);
-    }
+  }
+  .input__buttons {
+    display: flex;
+    @include flex(row, space-around, center);
+  }
 }

@@ -2,32 +2,32 @@
 @import '../../variables';
 
 .header {
-    display: grid;
-    grid-template-columns: 20% 40% 40%;
-    align-items: center;
-    gap: 1%;
-    padding: 0 5%;
-    background-color: $colorBackgroundLight;
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  align-items: center;
+  gap: 1%;
+  padding: 0 5%;
+  background-color: $colorBackgroundLight;
+  max-height: 200px;
+  .header__image-wrap {
+    display: flex;
+    @include flex(column, center, center);
     max-height: 200px;
-    .header__image-wrap {
-        display: flex;
-        @include flex(column, center, center);
-        max-height: 200px;
-        height: 100%;
-        max-width: 100%;
-        .header__image {
-            max-height: 150%;
-            max-width: 150%;
-        }
+    height: 100%;
+    max-width: 100%;
+    .header__image {
+      max-height: 150%;
+      max-width: 150%;
     }
-    .header__title-wrap {
-        display: flex;
-        @include flex(column, center, center);
-        text-decoration: none;
-        .header__title {
-            margin: 0;
-            @include font($font3, 5vw, $colorTextDark, 800);
-            line-height: 50px;
-        }
+  }
+  .header__title-wrap {
+    display: flex;
+    @include flex(column, center, center);
+    text-decoration: none;
+    .header__title {
+      margin: 0;
+      @include font($font3, 5vw, $colorTextDark, 800);
+      line-height: 50px;
     }
+  }
 }

@@ -1,33 +1,33 @@
 @import '../../template';
 @import '../../variables';
 .btn {
-    padding: 5px 10px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    &:hover {
-        color: $colorTextDark;
-        background-color: $colorTextLight;
-        border: 1px solid $colorBackgroundDark;
-        cursor: pointer;
-    }
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  &:hover {
+    color: $colorTextDark;
+    background-color: $colorTextLight;
+    border: 1px solid $colorBackgroundDark;
+    cursor: pointer;
+  }
 }
 
 .delete {
-    @include font($font1, 1.5vw, $colorTextLight, 600);
-    background-color: $colorBtnDelete;
+  @include font($font1, 1.5vw, $colorTextLight, 600);
+  background-color: $colorBtnDelete;
 }
 .edit {
-    @include font($font1, 1.5vw, $colorTextLight, 600);
-    background-color: $colorBtnEdit;
+  @include font($font1, 1.5vw, $colorTextLight, 600);
+  background-color: $colorBtnEdit;
 }
 .save {
-    @include font($font1, 1.5vw, $colorTextLight, 600);
-    background-color: $colorBtnSave;
+  @include font($font1, 1.5vw, $colorTextLight, 600);
+  background-color: $colorBtnSave;
 }
 .show {
-    @include font($font1, 3.5vw, $colorTextLight, 600);
-    background-color: $colorBackgroundMedium;
-    padding: 8px 18px;
-    border: 2px solid $colorBackgroundDark;
-    border-radius: 13px;
+  @include font($font1, 3.5vw, $colorTextLight, 600);
+  background-color: $colorBackgroundMedium;
+  padding: 8px 18px;
+  border: 2px solid $colorBackgroundDark;
+  border-radius: 13px;
 }

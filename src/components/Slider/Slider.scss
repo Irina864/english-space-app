@@ -2,12 +2,12 @@
 @import '../../variables';
 
 .slider {
-    display: grid;
-    grid-template-columns: 25% 50% 25%;
-    align-items: center;
-    width: 100%;
-    .slider__cardchangerbtn {
-        display: flex;
-        @include flex(column, center, center);
-    }
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  align-items: center;
+  width: 100%;
+  .slider__cardchangerbtn {
+    display: flex;
+    @include flex(column, center, center);
+  }
 }
