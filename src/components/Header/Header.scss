@@ -2,13 +2,18 @@
 @import '../../variables';
 
 .header {
-  display: grid;
-  grid-template-columns: 20% 40% 40%;
-  align-items: center;
-  gap: 1%;
-  padding: 0 5%;
   background-color: $colorBackgroundLight;
   max-height: 200px;
+
+  .header__container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 20% 40% 40%;
+    align-items: center;
+    gap: 1%;
+    padding: 0 5%;
+    max-width: 2800px;
+  }
   .header__image-wrap {
     display: flex;
     @include flex(column, center, center);

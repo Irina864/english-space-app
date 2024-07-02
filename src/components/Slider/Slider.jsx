@@ -6,7 +6,6 @@ import ImageButton from '../ImageButton/ImageButton';
 import arrowLeftImage from '../../images/arrow-left.png';
 import arrowRightImage from '../../images/arrow-right.png';
 import './Slider.css';
-
 function Slider(props = 'Server unavailable now') {
   const data = props.data;
   const { index } = useParams();
@@ -17,6 +16,8 @@ function Slider(props = 'Server unavailable now') {
   useEffect(() => {
     setShowedCardIndex(initialIndex);
   }, [initialIndex]);
+  const [count, setCount] = useState(0);
+
   const handleShowedCardIndexLeft = () => {
     showedCardIndex - 1 === -1
       ? setShowedCardIndex(showedCardIndex)
@@ -27,27 +28,35 @@ function Slider(props = 'Server unavailable now') {
       ? setShowedCardIndex(showedCardIndex + 1)
       : setShowedCardIndex(0);
   };
+  const handleCount = (e) => {
+    setCount(count + 1);
+  };
   return (
     <div className="slider">
-      <div
-        className="slider__cardchangerbtn"
-        onClick={handleShowedCardIndexLeft}
-      >
-        <ImageButton src={arrowLeftImage} alt="arrow-left" />
-      </div>
-      <Card
-        key={data[showedCardIndex].id}
-        english={data[showedCardIndex].english}
-        transcription={data[showedCardIndex].transcription}
-        russian={data[showedCardIndex].russian}
-        tags={data[showedCardIndex].tags}
-        tags_json={data[showedCardIndex].tags_json}
-      />
-      <div
-        className="slider__cardchangerbtn"
-        onClick={handleShowedCardIndexRigth}
-      >
-        <ImageButton src={arrowRightImage} alt="arrow-right" />
+      <div className="counter">You learned {count} words</div>
+      <div className="slider__box">
+        <div
+          className="slider__cardchangerbtn"
+          onClick={handleShowedCardIndexLeft}
+        >
+          <ImageButton src={arrowLeftImage} alt="arrow-left" />
+        </div>
+        <Card
+          key={data[showedCardIndex].id}
+          index={showedCardIndex}
+          english={data[showedCardIndex].english}
+          transcription={data[showedCardIndex].transcription}
+          russian={data[showedCardIndex].russian}
+          tags={data[showedCardIndex].tags}
+          tags_json={data[showedCardIndex].tags_json}
+          onClickAddCount={() => handleCount()}
+        />
+        <div
+          className="slider__cardchangerbtn"
+          onClick={handleShowedCardIndexRigth}
+        >
+          <ImageButton src={arrowRightImage} alt="arrow-right" />
+        </div>
       </div>
     </div>
   );

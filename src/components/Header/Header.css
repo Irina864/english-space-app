@@ -1,13 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&display=swap");
 .header {
+  background-color: #ddeafc;
+  max-height: 200px;
+}
+.header .header__container {
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 20% 40% 40%;
   align-items: center;
   gap: 1%;
   padding: 0 5%;
-  background-color: #ddeafc;
-  max-height: 200px;
+  max-width: 2800px;
 }
 .header .header__image-wrap {
   display: flex;

@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Routes>
+        <Routes className="main">
           <Route path="/" element={<Table data={data} />} />
           <Route path="/cards/:index" element={<Slider data={data} />} />
           <Route path="*" element={<MissingPage />} />

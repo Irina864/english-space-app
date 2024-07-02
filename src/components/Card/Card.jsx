@@ -1,13 +1,17 @@
 import Button from '../Button/Button';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Card.css';
 import image from '../../images/kitten.png';
 
-function Card({ english, transcription, russian, ...props }) {
+function Card({ english, transcription, russian, onClickAddCount, ...props }) {
   const [showedTranslation, setShowedTranslation] = useState(false);
   const handleShowedTranslation = () => {
     setShowedTranslation(!showedTranslation);
   };
+  const buttonRef = useRef(null);
+  useEffect(() => {
+    buttonRef.current.focus();
+  }, []);
   return (
     <div className="card">
       <div className="card__word">
@@ -21,7 +25,14 @@ function Card({ english, transcription, russian, ...props }) {
         {showedTranslation ? (
           <div className="card__rus card_item">{russian}</div>
         ) : (
-          <div className="card__button" onClick={handleShowedTranslation}>
+          <div
+            className="card__button"
+            onClick={() => {
+              onClickAddCount();
+              handleShowedTranslation();
+            }}
+            ref={buttonRef}
+          >
             <Button name="Show translation" theme="show" />
           </div>
         )}
