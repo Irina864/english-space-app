@@ -8,9 +8,11 @@ $colorBackgroundDark: #3e6fad;
 $font1: 'Inter', sans-serif;
 $font2: 'Roboto', sans-serif;
 $font3: 'Cormorant Garamond', serif;
+$colorEmptyInput: rgb(255, 228, 236);
 $colorBtnEdit: rgb(214, 182, 0);
 $colorBtnDelete: rgb(131, 17, 17);
 $colorBtnSave: rgb(15, 113, 62);
+$colorDisabled: rgb(203, 203, 203);
 
 @mixin font($ff, $fs, $fc, $fw) {
   font-family: $ff;

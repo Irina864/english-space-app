@@ -1,7 +1,15 @@
+import { forwardRef } from 'react';
 import './Button.css';
 
-function Button(props) {
-  const btnClass = 'btn ' + props.theme;
-  return <button className={btnClass}>{props.name}</button>;
-}
+const Button = forwardRef(({ theme, nameButton, onClick, disabled }, ref) => (
+  <button
+    className={`btn ${theme}`}
+    onClick={onClick}
+    ref={ref}
+    disabled={disabled}
+  >
+    {nameButton}
+  </button>
+));
+
 export default Button;

@@ -5,27 +5,54 @@ import './Input.css';
 
 function Input({ index, english, transcription, russian, tags, ...props }) {
   const [returnedValue, setReturnedValue] = useState(false);
-  const [inputValueEng, setInputValueEng] = useState(english);
-  const [inputValueTranscription, setInputValueTranscription] =
-    useState(transcription);
-  const [inputValueRus, setInputValueRus] = useState(russian);
-  const [inputValueTag, setInputValueTag] = useState(tags);
   const handleReturnedValue = () => {
-    setReturnedValue(!returnedValue);
-  };
-  const handleInputValueEng = (e) => {
-    setInputValueEng(e.target.value);
-  };
-  const handleInputValueTranscription = (e) => {
-    setInputValueTranscription(e.target.value);
-  };
-  const handleInputValueRus = (e) => {
-    setInputValueRus(e.target.value);
-  };
-  const handleInputValueTag = (e) => {
-    setInputValueTag(e.target.value);
+    state.english === '' &&
+    state.transcription === '' &&
+    state.russian === '' &&
+    state.tags === ''
+      ? setReturnedValue(returnedValue)
+      : setReturnedValue(!returnedValue);
   };
   let originalBoolean = false;
+  const [state, setState] = useState({
+    english: english || '',
+    transcription: transcription || '',
+    russian: russian || '',
+    tags: tags || '',
+  });
+  const [disabled, setDisabled] = useState(false);
+  const handleChangeState = (e) => {
+    const value = e.target.value;
+    const fieldName = e.target.name;
+    setState((prevState) => ({
+      ...prevState,
+      [fieldName]: value,
+    }));
+    if (value === '') {
+      setDisabled(true);
+      e.target.className = 'input__item empty';
+    } else {
+      setDisabled(false);
+      e.target.className = 'input__item';
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const mistakes = [];
+    const states = Object.keys(state);
+    states.forEach((item) => {
+      if (state[item] === '') {
+        mistakes.push('empty input');
+      }
+    });
+    if (mistakes.length === 0) {
+      console.log(state);
+      setReturnedValue(!returnedValue);
+    } else {
+      alert(`Заполните все поля формы!`);
+    }
+  };
+
   return returnedValue ? (
     <Topic
       index={index}
@@ -37,62 +64,51 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
       {...props}
     />
   ) : (
-    <div className="input">
+    <form name="form" className="input" onSubmit={handleSubmit}>
       <div className="input__word">
-        {english ? (
-          <input
-            className="input__eng input_item"
-            type="text"
-            placeholder={english}
-            value={inputValueEng}
-            onChange={handleInputValueEng}
-          />
-        ) : (
-          <input className="input__eng input_item" type="text" />
-        )}
-        {transcription ? (
-          <input
-            className="input__transcription input_item"
-            type="text"
-            placeholder={transcription}
-            value={inputValueTranscription}
-            onChange={handleInputValueTranscription}
-          />
-        ) : (
-          <input className="input__transcription input_item" type="text" />
-        )}
-        {russian ? (
-          <input
-            className="input__rus input_item"
-            type="text"
-            placeholder={russian}
-            value={inputValueRus}
-            onChange={handleInputValueRus}
-          />
-        ) : (
-          <input className="input__rus input_item" type="text" />
-        )}
-        {tags ? (
-          <input
-            className="input__rus input_item"
-            type="text"
-            placeholder={tags}
-            value={inputValueTag}
-            onChange={handleInputValueTag}
-          />
-        ) : (
-          <input className="input__rus input_item" type="text" />
-        )}
+        <input
+          name="english"
+          className="input__item"
+          type="text"
+          value={state.english}
+          onChange={handleChangeState}
+        />
+        <input
+          name="transcription"
+          className="input__item"
+          type="text"
+          value={state.transcription}
+          onChange={handleChangeState}
+        />
+        <input
+          name="russian"
+          className="input__item"
+          type="text"
+          value={state.russian}
+          onChange={handleChangeState}
+        />
+        <input
+          name="tags"
+          className="input__item"
+          type="text"
+          value={state.tags}
+          onChange={handleChangeState}
+        />
       </div>
       <div className="input__buttons">
-        <div className="input__btn">
-          <Button name="Save" theme="save" />
-        </div>
-        <div className="input__btn" onClick={handleReturnedValue}>
-          <Button name="Cancel" theme="delete" />
-        </div>
+        <Button
+          nameButton="Сохранить"
+          theme="save"
+          disabled={disabled}
+          onClick={handleSubmit}
+        />
+        <Button
+          nameButton="Отменить"
+          theme="delete"
+          onClick={handleReturnedValue}
+        />
       </div>
-    </div>
+    </form>
   );
 }
 

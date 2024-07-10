@@ -12,12 +12,18 @@
     grid-template-columns: repeat(4, 24%);
     justify-content: space-around;
     @include font($font2, 1.8vw, $colorTextDark, 500);
-    .input_item {
+    .input__item {
       border: 1px solid $colorBackgroundDark;
       border-radius: 10px;
       @include font($font2, 1.8vw, $colorTextDark, 500);
     }
+    .empty {
+      border: 1.5px solid red;
+      outline: none;
+      background-color: $colorEmptyInput;
+    }
   }
+
   .input__buttons {
     display: flex;
     @include flex(row, space-around, center);

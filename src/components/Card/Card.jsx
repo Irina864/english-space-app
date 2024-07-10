@@ -8,10 +8,15 @@ function Card({ english, transcription, russian, onClickAddCount, ...props }) {
   const handleShowedTranslation = () => {
     setShowedTranslation(!showedTranslation);
   };
+
   const buttonRef = useRef(null);
+
   useEffect(() => {
-    buttonRef.current.focus();
+    if (buttonRef.current) {
+      buttonRef.current.focus();
+    }
   }, []);
+
   return (
     <div className="card">
       <div className="card__word">
@@ -25,16 +30,15 @@ function Card({ english, transcription, russian, onClickAddCount, ...props }) {
         {showedTranslation ? (
           <div className="card__rus card_item">{russian}</div>
         ) : (
-          <div
-            className="card__button"
+          <Button
+            nameButton="Показать перевод"
+            theme="show"
             onClick={() => {
               onClickAddCount();
               handleShowedTranslation();
             }}
             ref={buttonRef}
-          >
-            <Button name="Show translation" theme="show" />
-          </div>
+          />
         )}
       </div>
     </div>

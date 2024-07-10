@@ -33,7 +33,7 @@ function Slider(props = 'Server unavailable now') {
   };
   return (
     <div className="slider">
-      <div className="counter">You learned {count} words</div>
+      <div className="counter">Вы выучили: {count}</div>
       <div className="slider__box">
         <div
           className="slider__cardchangerbtn"

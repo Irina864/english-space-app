@@ -16,13 +16,18 @@
   color: #002e7e;
   font-weight: 500;
 }
-.input .input__word .input_item {
+.input .input__word .input__item {
   border: 1px solid #3e6fad;
   border-radius: 10px;
   font-family: "Roboto", sans-serif;
   font-size: 1.8vw;
   color: #002e7e;
   font-weight: 500;
+}
+.input .input__word .empty {
+  border: 1.5px solid red;
+  outline: none;
+  background-color: rgb(255, 228, 236);
 }
 .input .input__buttons {
   display: flex;

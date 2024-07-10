@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import './Topic.css';
-
 function Topic({
   index,
   english,
@@ -34,12 +33,12 @@ function Topic({
         <div className="topic__tag topic_item">{tags}</div>
       </div>
       <div className="topic__buttons">
-        <div className="topic__btn" onClick={handleEditingWordMode}>
-          <Button name="Edit" theme="edit" />
-        </div>
-        <div className="topic__btn">
-          <Button name="Delete" theme="delete" />
-        </div>
+        <Button
+          nameButton="Изменить"
+          theme="edit"
+          onClick={handleEditingWordMode}
+        />
+        <Button nameButton="Удалить" theme="delete" />
       </div>
     </div>
   );

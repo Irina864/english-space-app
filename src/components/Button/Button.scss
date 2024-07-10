@@ -10,6 +10,12 @@
     border: 1px solid $colorBackgroundDark;
     cursor: pointer;
   }
+  &:disabled {
+    background-color: $colorDisabled;
+    color: $colorTextLight;
+    border: 1px solid transparent;
+    cursor: none;
+  }
 }
 
 .delete {

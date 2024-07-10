@@ -11,6 +11,12 @@
   border: 1px solid #3e6fad;
   cursor: pointer;
 }
+.btn:disabled {
+  background-color: rgb(203, 203, 203);
+  color: #ffffff;
+  border: 1px solid transparent;
+  cursor: none;
+}
 
 .delete {
   font-family: "Inter", sans-serif;
