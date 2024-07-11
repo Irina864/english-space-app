@@ -1,43 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap");
 .header {
-  background-color: #ddeafc;
-  max-height: 200px;
-}
-.header .header__container {
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 20% 40% 40%;
+  grid-area: 1/1/2/2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  gap: 1%;
-  padding: 0 5%;
-  max-width: 2800px;
 }
 .header .header__image-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-height: 200px;
-  height: 100%;
   max-width: 100%;
 }
+@media (max-width: 768px) {
+  .header .header__image-wrap {
+    max-height: 70%;
+  }
+}
 .header .header__image-wrap .header__image {
-  max-height: 150%;
-  max-width: 150%;
+  max-height: 100%;
+  max-width: 100%;
 }
-.header .header__title-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-}
-.header .header__title-wrap .header__title {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 5vw;
-  color: #002e7e;
-  font-weight: 800;
-  line-height: 50px;
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }/*# sourceMappingURL=Header.css.map */

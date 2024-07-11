@@ -1,54 +1,63 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap");
 .btn {
-  padding: 5px 10px;
-  border: 1px solid transparent;
-  border-radius: 8px;
+  padding: 0.15rem 0.3rem;
+  border-radius: 0.4rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 600;
 }
 .btn:hover {
-  color: #002e7e;
-  background-color: #ffffff;
-  border: 1px solid #3e6fad;
   cursor: pointer;
+  color: #00338b;
 }
 .btn:disabled {
-  background-color: rgb(203, 203, 203);
+  background-color: #cbcbcb;
+  border: 0.15rem solid rgb(203, 203, 203);
   color: #ffffff;
-  border: 1px solid transparent;
   cursor: none;
 }
 
-.delete {
-  font-family: "Inter", sans-serif;
-  font-size: 1.5vw;
-  color: #ffffff;
-  font-weight: 600;
-  background-color: rgb(131, 17, 17);
-}
-
-.edit {
-  font-family: "Inter", sans-serif;
-  font-size: 1.5vw;
-  color: #ffffff;
-  font-weight: 600;
-  background-color: rgb(214, 182, 0);
-}
-
-.save {
-  font-family: "Inter", sans-serif;
-  font-size: 1.5vw;
-  color: #ffffff;
-  font-weight: 600;
-  background-color: rgb(15, 113, 62);
-}
-
 .show {
-  font-family: "Inter", sans-serif;
-  font-size: 3.5vw;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 1.5rem;
   color: #ffffff;
   font-weight: 600;
-  background-color: #6c95e7;
-  padding: 8px 18px;
-  border: 2px solid #3e6fad;
+  padding: 0.5rem 1rem;
+  background-color: #a1c0ff;
+  border: 0.15rem solid #3e6fad;
   border-radius: 13px;
+}
+.show:hover {
+  background-color: rgb(0, 174, 130);
+}
+@media (max-width: 768px) {
+  .show {
+    font-size: 1rem;
+  }
+}
+
+.know {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 1.35rem;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  background-color: rgb(0, 174, 130);
+  border: 0.15rem solid rgb(0, 68, 43);
+  border-radius: 13px;
+}
+.know:hover {
+  background-color: rgb(237, 255, 248);
+}
+@media (max-width: 768px) {
+  .know {
+    font-size: 0.9rem;
+  }
 }/*# sourceMappingURL=Button.css.map */

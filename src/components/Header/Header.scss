@@ -1,38 +1,20 @@
 @import '../../template';
 @import '../../variables';
-
 .header {
-  background-color: $colorBackgroundLight;
-  max-height: 200px;
-
-  .header__container {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 20% 40% 40%;
-    align-items: center;
-    gap: 1%;
-    padding: 0 5%;
-    max-width: 2800px;
-  }
+  grid-area: 1/1/2/2;
+  display: flex;
+  @include flex(row, space-between, center);
   .header__image-wrap {
-    display: flex;
-    @include flex(column, center, center);
-    max-height: 200px;
-    height: 100%;
     max-width: 100%;
+    @include _tablet {
+      max-height: 70%;
+    }
     .header__image {
-      max-height: 150%;
-      max-width: 150%;
+      max-height: 100%;
+      max-width: 100%;
     }
   }
-  .header__title-wrap {
-    display: flex;
-    @include flex(column, center, center);
-    text-decoration: none;
-    .header__title {
-      margin: 0;
-      @include font($font3, 5vw, $colorTextDark, 800);
-      line-height: 50px;
-    }
+  @include _tablet {
+    @include flex(column, space-around, center);
   }
 }

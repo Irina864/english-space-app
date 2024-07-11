@@ -6,7 +6,6 @@
   @include flex(row, center, flex-start);
   gap: 5%;
   padding: 5% 5%;
-  height: 100vh;
   .missing__imagewrap {
     max-width: 50%;
     .missing__image {
@@ -14,9 +13,14 @@
     }
   }
   .missing__title {
-    @include font($font1, 3vw, $colorTextDark, 600);
+    @include font($font1, 2rem, $colorTextDark, 700);
   }
   .missing__text {
-    @include font($font1, 2vw, $colorTextDark, 400);
+    margin: 0;
+    @include font($font1, 1.5rem, $colorTextDark, 500);
+    text-decoration: none;
+    &:hover {
+      color: $colorTextMedium;
+    }
   }
 }

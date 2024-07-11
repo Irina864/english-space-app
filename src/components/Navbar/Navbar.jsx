@@ -5,10 +5,10 @@ function Navbar() {
   return (
     <div className="nav">
       <Link to="/" className="nav__item nav_table">
-        Таблица
+        ТАБЛИЦА
       </Link>
       <Link to="/cards/0" className="nav__item nav_cards">
-        Карточки
+        КАРТОЧКИ
       </Link>
     </div>
   );

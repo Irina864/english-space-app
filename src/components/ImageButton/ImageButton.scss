@@ -2,14 +2,92 @@
 @import '../../variables';
 
 .imagebtn {
+  height: 100%;
+  width: 100%;
+  .imagebtn__imagewrap {
+    display: flex;
+    @include flex(column, center, center);
+    padding: 0.05rem;
+    .imagebtn__image {
+      height: 100%;
+      width: 100%;
+      @include _tablet {
+        height: 180%;
+        width: 180%;
+      }
+    }
+  }
+}
+.sliderBtn {
   background-color: transparent;
   border: none;
-  .imagebtn__image {
-    display: block;
-    max-width: 100%;
-    transition: 0.5s;
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+}
+.delete {
+  max-width: 50px;
+  max-height: 50px;
+  background-color: $colorBtnDelete;
+  border: 0.15rem solid $colorBtnDeleteBorder;
+  border-radius: 0.3rem;
+  @include _tablet {
+    max-width: 30px;
+    max-height: 30px;
+  }
+  &:hover {
+    background-color: $colorBtnDeleteLight;
+  }
+}
+.cancel {
+  max-width: 50px;
+  max-height: 50px;
+  background-color: $colorBtnCancel;
+  border: 0.15rem solid $colorBtnCancelBorder;
+  border-radius: 0.3rem;
+  @include _tablet {
+    max-width: 30px;
+    max-height: 30px;
+  }
+  &:hover {
+    background-color: $colorBtnCancelLight;
+  }
+}
+.edit {
+  max-width: 50px;
+  max-height: 50px;
+  background-color: $colorBtnEdit;
+  border: 0.15rem solid $colorBtnEditBorder;
+  border-radius: 0.3rem;
+  @include _tablet {
+    max-width: 30px;
+    max-height: 30px;
+  }
+  &:hover {
+    background-color: $colorBtnEditLight;
+  }
+}
+.save {
+  max-width: 50px;
+  max-height: 50px;
+  background-color: $colorBtnSave;
+  border: 0.15rem solid $colorBtnSaveBorder;
+  border-radius: 0.3rem;
+  @include _tablet {
+    max-width: 30px;
+    max-height: 30px;
+  }
+  &:hover {
+    background-color: $colorBtnSaveLight;
+  }
+  &:disabled {
+    background-color: $colorDisabled;
+    border: 0.15rem solid $colorDisabledBorder;
+    cursor: none;
     &:hover {
-      transform: scale(1.3);
+      transform: scale(1);
+      cursor: none;
     }
   }
 }

@@ -1,18 +1,38 @@
 $colorTextLight: #ffffff;
-$colorTextMedium: #3b75c5;
-$colorTextDark: #002e7e;
+$colorTextMedium: #6792ce;
+$colorTextDark: #00338b;
+
+$colorBorderDark: rgb(162, 0, 0);
+$colorBackgroundCardFirst: #0084ff;
+$colorBackgroundCardSecond: #ff0044;
+
 $colorBackgroundWhite: #ffffff;
-$colorBackgroundLight: #ddeafc;
-$colorBackgroundMedium: #6c95e7;
+$colorBackgroundLight: #f1f7ff;
+$colorBackgroundMedium: #a1c0ff;
 $colorBackgroundDark: #3e6fad;
-$font1: 'Inter', sans-serif;
-$font2: 'Roboto', sans-serif;
-$font3: 'Cormorant Garamond', serif;
+$font1: 'Nunito', sans-serif;
+$font2: 'Comfortaa', sans-serif;
 $colorEmptyInput: rgb(255, 228, 236);
-$colorBtnEdit: rgb(214, 182, 0);
-$colorBtnDelete: rgb(131, 17, 17);
-$colorBtnSave: rgb(15, 113, 62);
-$colorDisabled: rgb(203, 203, 203);
+
+$colorBtnEdit: #4e56c4;
+$colorBtnDelete: rgb(187, 0, 0);
+$colorBtnCancel: #e3ab00;
+$colorBtnSave: rgb(0, 139, 88);
+$colorDisabled: #cbcbcb;
+$colorBtnKnownWord: rgb(0, 174, 130);
+
+$colorBtnEditBorder: #000872;
+$colorBtnDeleteBorder: rgb(124, 0, 0);
+$colorBtnCancelBorder: #a48600;
+$colorBtnSaveBorder: rgb(0, 68, 43);
+$colorDisabledBorder: rgb(203, 203, 203);
+$colorBtnKnownWordBorder: rgb(0, 68, 43);
+
+$colorBtnEditLight: #9ca3ff;
+$colorBtnDeleteLight: rgb(255, 99, 99);
+$colorBtnCancelLight: #ffe364;
+$colorBtnSaveLight: rgb(2, 221, 140);
+$colorBtnKnownWordLight: rgb(237, 255, 248);
 
 @mixin font($ff, $fs, $fc, $fw) {
   font-family: $ff;
@@ -26,7 +46,7 @@ $colorDisabled: rgb(203, 203, 203);
   align-items: $ai;
 }
 @mixin _laptop {
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     @content;
   }
 }
@@ -36,7 +56,7 @@ $colorDisabled: rgb(203, 203, 203);
   }
 }
 @mixin _mobile {
-  @media (max-width: 320px) {
+  @media (max-width: 425px) {
     @content;
   }
 }

@@ -1,5 +1,6 @@
 import './MissingPage.css';
 import image from '../../images/cat-two-bows-sitting.png';
+import { Link } from 'react-router-dom';
 
 function MissingPage() {
   return (
@@ -9,9 +10,10 @@ function MissingPage() {
       </div>
       <div className="missing__textwrap">
         <h1 className="missing__title">404 Страница не найдена &#58;&#40;</h1>
-        <p className="missing__text">
-          Пожалуйста, вернитесь на главную страницу
-        </p>
+        <p className="missing__text">Пожалуйста, вернитесь</p>
+        <Link to="/" className="missing__text">
+          на главную страницу
+        </Link>
       </div>
     </main>
   );

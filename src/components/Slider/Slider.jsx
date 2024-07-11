@@ -33,13 +33,17 @@ function Slider(props = 'Server unavailable now') {
   };
   return (
     <div className="slider">
-      <div className="counter">Вы выучили: {count}</div>
+      <div className="counter">Вы знаете: {count} &#40;слов&#41;</div>
       <div className="slider__box">
         <div
           className="slider__cardchangerbtn"
           onClick={handleShowedCardIndexLeft}
         >
-          <ImageButton src={arrowLeftImage} alt="arrow-left" />
+          <ImageButton
+            src={arrowLeftImage}
+            alt="arrow-left"
+            theme="sliderBtn"
+          />
         </div>
         <Card
           key={data[showedCardIndex].id}
@@ -55,7 +59,11 @@ function Slider(props = 'Server unavailable now') {
           className="slider__cardchangerbtn"
           onClick={handleShowedCardIndexRigth}
         >
-          <ImageButton src={arrowRightImage} alt="arrow-right" />
+          <ImageButton
+            src={arrowRightImage}
+            alt="arrow-right"
+            theme="sliderBtn"
+          />
         </div>
       </div>
     </div>

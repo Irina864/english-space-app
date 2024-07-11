@@ -2,32 +2,22 @@
 @import '../../variables';
 
 .nav {
-  max-height: 200px;
   display: flex;
-  @include flex(row, center, center);
-  gap: 7%;
-  margin: 0;
+  @include flex(row, space-around, center);
+  min-width: 40%;
+
   .nav__item {
-    padding: 0.25% 2%;
-    @include font($font3, 3vw, $colorTextMedium, 700);
+    @include font($font1, 1.5rem, $colorTextDark, 700);
     text-decoration: none;
-    &:hover {
-      color: $colorTextLight;
-      -webkit-text-shadow: 0px 2px 0 rgb(35, 55, 144),
-        0px -1px 0 rgb(35, 55, 144), 1px 0px 0 rgb(35, 55, 144),
-        -1px 0px 0 rgb(35, 55, 144), 1px 1px 0 rgb(35, 55, 144),
-        1px -1px 0 rgb(35, 55, 144), -1px 1px 0 rgb(35, 55, 144),
-        -1px -1px 0 rgb(35, 55, 144);
-      -moz-text-shadow: 0px 2px 0 rgb(35, 55, 144), 0px -1px 0 rgb(35, 55, 144),
-        1px 0px 0 rgb(35, 55, 144), -1px 0px 0 rgb(35, 55, 144),
-        1px 1px 0 rgb(35, 55, 144), 1px -1px 0 rgb(35, 55, 144),
-        -1px 1px 0 rgb(35, 55, 144), -1px -1px 0 rgb(35, 55, 144);
-      text-shadow: 0px 2px 0 rgb(35, 55, 144), 0px -1px 0 rgb(35, 55, 144),
-        1px 0px 0 rgb(35, 55, 144), -1px 0px 0 rgb(35, 55, 144),
-        1px 1px 0 rgb(35, 55, 144), 1px -1px 0 rgb(35, 55, 144),
-        -1px 1px 0 rgb(35, 55, 144), -1px -1px 0 rgb(35, 55, 144);
-      transform: scale(1.05);
-      cursor: pointer;
+    @include _mobile {
+      font-size: 1.1rem;
     }
+    &:hover {
+      color: $colorTextMedium;
+    }
+  }
+  @include _tablet {
+    margin-bottom: 1%;
+    width: 100%;
   }
 }

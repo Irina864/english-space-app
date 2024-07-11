@@ -1,31 +1,27 @@
 @import '../../template';
 @import '../../variables';
 
-.input {
+.item {
   display: grid;
   grid-template-columns: 85% 15%;
   align-items: center;
   padding: 0.7rem 0.5rem;
   border-top: 1px solid $colorBorderDark;
   border-bottom: 1px solid $colorBorderDark;
-  background-color: $colorBackgroundMedium;
   @include _tablet {
     padding: 0.5rem 0.2rem;
     border-top: 1.5px solid $colorBorderDark;
     border-bottom: 1.5px solid $colorBorderDark;
   }
-  .input__word {
+  .item__word {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1%;
+    grid-template-columns: repeat(4, 25%);
     @include _mobile {
-      grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-      gap: 0.1rem;
+      grid-template-columns: repeat(3, 33%);
     }
-    .input__item {
-      width: 90%;
-      border: 1px solid $colorTextDark;
-      border-radius: 0.4rem;
+    .item__item {
+      display: flex;
+      @include flex(column, center, center);
       @include font($font1, 1.3rem, $colorTextDark, 600);
       text-align: center;
       @include _laptop {
@@ -34,16 +30,18 @@
       @include _tablet {
         font-size: 0.8rem;
       }
-    }
-    .empty {
-      border: 1.5px solid red;
-      outline: none;
-      background-color: $colorEmptyInput;
+      @include _mobile {
+        font-size: 0.7rem;
+        &:last-child {
+          display: none;
+        }
+      }
     }
   }
-  .input__buttons {
+  .item__buttons {
     display: flex;
     @include flex(row, space-around, center);
+
     @include _mobile {
       gap: 0.1rem;
     }

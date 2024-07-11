@@ -18,7 +18,7 @@ function Card({ english, transcription, russian, onClickAddCount, ...props }) {
   }, []);
 
   return (
-    <div className="card">
+    <main className="card">
       <div className="card__word">
         <div className="card__eng card_item">{english}</div>
         <div className="card__transcription card_item">{transcription}</div>
@@ -26,22 +26,24 @@ function Card({ english, transcription, russian, onClickAddCount, ...props }) {
       <div className="card__imagewrap">
         <img className="card__image" src={image} alt="Card cat" />
       </div>
-      <div className="card__check">
+      <div className="card__buttons">
         {showedTranslation ? (
           <div className="card__rus card_item">{russian}</div>
         ) : (
           <Button
             nameButton="Показать перевод"
             theme="show"
-            onClick={() => {
-              onClickAddCount();
-              handleShowedTranslation();
-            }}
+            onClick={handleShowedTranslation}
             ref={buttonRef}
           />
         )}
+        <Button
+          nameButton="Я знаю это слово"
+          theme="know"
+          onClick={onClickAddCount}
+        />
       </div>
-    </div>
+    </main>
   );
 }
 export default Card;

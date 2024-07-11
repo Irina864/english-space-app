@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import Topic from '../Topic/Topic';
-import Button from '../Button/Button';
+import Item from '../Item/Item';
+import ImageButton from '../ImageButton/ImageButton';
+import iconSave from '../../images/icon-save.png';
+import iconCancel from '../../images/icon-cancel.png';
 import './Input.css';
 
 function Input({ index, english, transcription, russian, tags, ...props }) {
@@ -54,7 +56,7 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
   };
 
   return returnedValue ? (
-    <Topic
+    <Item
       index={index}
       english={english}
       transcription={transcription}
@@ -72,6 +74,7 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
           type="text"
           value={state.english}
           onChange={handleChangeState}
+          placeholder="английское"
         />
         <input
           name="transcription"
@@ -79,6 +82,7 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
           type="text"
           value={state.transcription}
           onChange={handleChangeState}
+          placeholder="транскрипция"
         />
         <input
           name="russian"
@@ -86,6 +90,7 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
           type="text"
           value={state.russian}
           onChange={handleChangeState}
+          placeholder="русское"
         />
         <input
           name="tags"
@@ -93,18 +98,21 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
           type="text"
           value={state.tags}
           onChange={handleChangeState}
+          placeholder="тема"
         />
       </div>
       <div className="input__buttons">
-        <Button
-          nameButton="Сохранить"
+        <ImageButton
+          src={iconSave}
+          alt="Save"
           theme="save"
           disabled={disabled}
           onClick={handleSubmit}
         />
-        <Button
-          nameButton="Отменить"
-          theme="delete"
+        <ImageButton
+          src={iconCancel}
+          alt="Cancel"
+          theme="cancel"
           onClick={handleReturnedValue}
         />
       </div>

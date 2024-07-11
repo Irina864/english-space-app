@@ -2,22 +2,47 @@
 @import '../../variables';
 .card {
   display: grid;
-  grid-template-rows: 50% 30% 20%;
-  margin: 0 auto;
-  width: 100%;
+  grid-template-rows: 40% 30% 30%;
+  min-width: 50%;
+  min-height: 450px;
   height: 80%;
-  border: 3px solid $colorBackgroundDark;
-  border-radius: 10px;
-  background-color: $colorBackgroundLight;
+  border: 0.2rem solid $colorBorderDark;
+  border-radius: 1rem;
+  background-color: $colorBackgroundCard;
+  background: linear-gradient(
+    180deg,
+    $colorBackgroundCardFirst 0%,
+    $colorBackgroundWhite 50%,
+    $colorBackgroundCardSecond 100%
+  );
+  @include _tablet {
+    min-width: 70%;
+  }
   .card__word {
     grid-area: 1/1/2/2;
     display: flex;
     @include flex(column, flex-end, center);
+    gap: 1rem;
+    margin: 1%;
     .card__eng {
-      @include font($font2, 8vw, $colorTextMedium, 900);
+      @include font($font2, 5rem, $colorTextMedium, 900);
+      text-align: center;
+      @include _laptop {
+        font-size: 3.5rem;
+      }
+      @include _tablet {
+        font-size: 3rem;
+      }
     }
     .card__transcription {
-      @include font($font2, 3.5vw, $colorTextDark, 580);
+      @include font($font2, 2rem, $colorTextDark, 580);
+      text-align: center;
+      @include _laptop {
+        font-size: 1.7rem;
+      }
+      @include _tablet {
+        font-size: 1.2rem;
+      }
     }
   }
   .card__imagewrap {
@@ -35,12 +60,21 @@
       }
     }
   }
-  .card__check {
+  .card__buttons {
     grid-area: 3/1/4/2;
     display: flex;
     @include flex(column, flex-start, center);
+    gap: 15%;
+    margin: 1%;
     .card__rus {
-      @include font($font2, 5vw, $colorTextMedium, 700);
+      @include font($font2, 3rem, $colorTextMedium, 700);
+      text-align: center;
+      @include _laptop {
+        font-size: 2rem;
+      }
+      @include _tablet {
+        font-size: 1.5rem;
+      }
     }
   }
 }

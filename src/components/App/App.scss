@@ -3,12 +3,11 @@
 
 .App {
   display: grid;
-  grid-template-rows: 20% 80%;
+  grid-template-rows: 150px 1fr;
   margin: 0 auto;
+  max-width: 1920px;
   min-height: 100vh;
-  background: linear-gradient(0deg, $colorBackgroundLight 0%, transparent 100%);
-  // .main {
-  //   margin: 0 auto;
-  //   max-width: 2560px;
-  // }
+  @include _mobile {
+    grid-template-rows: 100px 1fr;
+  }
 }
