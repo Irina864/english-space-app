@@ -22,7 +22,7 @@
     .item__item {
       display: flex;
       @include flex(column, center, center);
-      @include font($font1, 1.3rem, $colorTextDark, 600);
+      @include font($font1, 1.4rem, $colorTextDark, 600);
       text-align: center;
       @include _laptop {
         font-size: 1.15rem;

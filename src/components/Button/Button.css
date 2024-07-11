@@ -35,7 +35,7 @@
   border-radius: 13px;
 }
 .show:hover {
-  background-color: rgb(0, 174, 130);
+  background-color: #f1f7ff;
 }
 @media (max-width: 768px) {
   .show {

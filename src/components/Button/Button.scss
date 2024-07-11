@@ -23,7 +23,7 @@
   border: 0.15rem solid $colorBackgroundDark;
   border-radius: 13px;
   &:hover {
-    background-color: $colorBtnKnownWord;
+    background-color: $colorBackgroundLight;
   }
   @include _tablet {
     font-size: 1rem;

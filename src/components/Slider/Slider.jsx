@@ -16,7 +16,6 @@ function Slider(props = 'Server unavailable now') {
   useEffect(() => {
     setShowedCardIndex(initialIndex);
   }, [initialIndex]);
-  const [count, setCount] = useState(0);
 
   const handleShowedCardIndexLeft = () => {
     showedCardIndex - 1 === -1
@@ -28,6 +27,7 @@ function Slider(props = 'Server unavailable now') {
       ? setShowedCardIndex(showedCardIndex + 1)
       : setShowedCardIndex(0);
   };
+  const [count, setCount] = useState(0);
   const handleCount = (e) => {
     setCount(count + 1);
   };
