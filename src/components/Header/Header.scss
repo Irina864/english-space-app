@@ -1,9 +1,11 @@
 @import '../../template';
 @import '../../variables';
+
 .header {
   grid-area: 1/1/2/2;
   display: flex;
   @include flex(row, space-between, center);
+  margin: 0 1%;
   .header__image-wrap {
     max-width: 100%;
     @include _tablet {
