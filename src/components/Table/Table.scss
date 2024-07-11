@@ -6,7 +6,12 @@
   margin: 1% 2%;
   border: 0.2rem solid $colorBorderDark;
   border-radius: 0.5rem;
-  background-color: $colorBackgroundLight;
+  background: linear-gradient(
+    90deg,
+    $colorBackgroundCardFirst 0%,
+    $colorBackgroundWhite 80%,
+    $colorBackgroundCardSecond 100%
+  );
   @include _tablet {
     margin: 1% 0;
     border: 0;

@@ -9,6 +9,9 @@
   height: 100%;
   width: 100%;
 }
+.imagebtn:hover {
+  cursor: pointer;
+}
 .imagebtn .imagebtn__imagewrap {
   display: flex;
   flex-direction: column;

@@ -12,7 +12,7 @@
   padding: 0.7rem 0.5rem;
   border-top: 1px solid rgb(162, 0, 0);
   border-bottom: 1px solid rgb(162, 0, 0);
-  background-color: #a1c0ff;
+  background-color: rgba(196, 216, 255, 0.6078431373);
 }
 @media (max-width: 768px) {
   .input {

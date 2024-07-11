@@ -74,7 +74,7 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
           type="text"
           value={state.english}
           onChange={handleChangeState}
-          placeholder="английское"
+          placeholder="слово"
         />
         <input
           name="transcription"
@@ -90,7 +90,7 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
           type="text"
           value={state.russian}
           onChange={handleChangeState}
-          placeholder="русское"
+          placeholder="перевод"
         />
         <input
           name="tags"

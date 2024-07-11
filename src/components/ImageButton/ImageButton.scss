@@ -4,6 +4,9 @@
 .imagebtn {
   height: 100%;
   width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
   .imagebtn__imagewrap {
     display: flex;
     @include flex(column, center, center);

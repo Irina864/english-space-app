@@ -10,7 +10,7 @@
   margin: 1% 2%;
   border: 0.2rem solid rgb(162, 0, 0);
   border-radius: 0.5rem;
-  background-color: #f1f7ff;
+  background: linear-gradient(90deg, #e1f0ff 0%, #ffffff 80%, #ffeaf0 100%);
 }
 @media (max-width: 768px) {
   .table {
