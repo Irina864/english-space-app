@@ -15,7 +15,6 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
       ? setReturnedValue(returnedValue)
       : setReturnedValue(!returnedValue);
   };
-  let originalBoolean = false;
   const [state, setState] = useState({
     english: english || '',
     transcription: transcription || '',
@@ -30,7 +29,7 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
       ...prevState,
       [fieldName]: value,
     }));
-    if (value === '') {
+    if (value.trim() === '') {
       setDisabled(true);
       e.target.className = 'input__item empty';
     } else {
@@ -62,7 +61,6 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
       transcription={transcription}
       russian={russian}
       tags={tags}
-      boolean={originalBoolean}
       {...props}
     />
   ) : (

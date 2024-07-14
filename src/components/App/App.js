@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   const favicon = document.querySelector('link[rel="icon"]');
-  document.title = 'English space';
+  document.title = 'English Space';
   favicon.href = '../../images/favicon.ico';
   return (
     <Router>
