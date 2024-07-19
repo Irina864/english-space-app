@@ -5,15 +5,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap");
-.App {
-  display: grid;
-  grid-template-rows: 150px 1fr;
-  margin: 0 auto;
-  max-width: 1920px;
-  min-height: 20vh;
+.serverError {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0.2rem solid rgb(162, 0, 0);
+  border-radius: 0.5rem;
+  background: linear-gradient(0deg, #e1f0ff 0%, #ffffff 80%, #ffeaf0 100%);
+  font-family: "Nunito", sans-serif;
+  font-size: 3rem;
+  color: #00338b;
+  font-weight: 700;
+  text-align: center;
 }
 @media (max-width: 425px) {
-  .App {
-    grid-template-rows: 100px 1fr;
+  .serverError {
+    font-size: 1.5rem;
   }
-}/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=Error.css.map */

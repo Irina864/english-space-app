@@ -2,19 +2,25 @@ import Item from '../Item/Item';
 import Input from '../Input/Input';
 import './Table.css';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { DataContext } from '../context';
+import Error from '../Error/Error';
 
-function Table(props) {
-  const data = props.data;
+function Table() {
+  const { dictionary, error } = useContext(DataContext);
+
+  // console.log('dictionary from Table ' + dictionary);
   const navigate = useNavigate();
   const handleCardClick = (index) => {
     navigate(`/cards/${index}`);
   };
-  return (
+  return error === null ? (
     <main className="table">
-      <Input />
-      {data.map((i, index) => (
+      <Input forAdd={true} />
+      {dictionary.map((i, index) => (
         <Item
           key={i.id}
+          id={i.id}
           index={index}
           english={i.english}
           transcription={i.transcription}
@@ -25,6 +31,8 @@ function Table(props) {
         />
       ))}
     </main>
+  ) : (
+    <Error />
   );
 }
 export default Table;

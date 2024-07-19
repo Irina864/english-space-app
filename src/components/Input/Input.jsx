@@ -4,22 +4,29 @@ import ImageButton from '../ImageButton/ImageButton';
 import iconSave from '../../images/icon-save.png';
 import iconCancel from '../../images/icon-cancel.png';
 import './Input.css';
+import { useContext } from 'react';
+import { DataContext } from '../context';
 
-function Input({ index, english, transcription, russian, tags, ...props }) {
+function Input({
+  id,
+  index,
+  english,
+  transcription,
+  russian,
+  tags,
+  tags_json,
+  forAdd,
+  ...props
+}) {
+  const { dictionary, addNewWord, updateWord } = useContext(DataContext);
   const [returnedValue, setReturnedValue] = useState(false);
-  const handleReturnedValue = () => {
-    state.english === '' &&
-    state.transcription === '' &&
-    state.russian === '' &&
-    state.tags === ''
-      ? setReturnedValue(returnedValue)
-      : setReturnedValue(!returnedValue);
-  };
   const [state, setState] = useState({
+    id: id || '',
     english: english || '',
     transcription: transcription || '',
     russian: russian || '',
     tags: tags || '',
+    tags_json: tags_json || '',
   });
   const [disabled, setDisabled] = useState(false);
   const handleChangeState = (e) => {
@@ -27,7 +34,15 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
     const fieldName = e.target.name;
     setState((prevState) => ({
       ...prevState,
+      id:
+        prevState.id === ''
+          ? dictionary.reduce(
+              (max, dictionary) => Math.max(max, dictionary.id),
+              0
+            ) + 1
+          : prevState.id,
       [fieldName]: value,
+      tags_json: fieldName === 'tags' ? `["${e.target.value}"]` : '',
     }));
     if (value.trim() === '') {
       setDisabled(true);
@@ -47,9 +62,21 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
       }
     });
     if (mistakes.length === 0) {
+      //check
       console.log(state);
-      setReturnedValue(!returnedValue);
+      //check
+      if (forAdd) {
+        addNewWord(state);
+        setReturnedValue(returnedValue);
+        setState({ english: '', transcription: '', russian: '', tags: '' });
+      } else {
+        updateWord(state);
+        setReturnedValue(!returnedValue);
+      }
     } else {
+      //check
+      console.log(mistakes);
+      //check
       alert(`Заполните все поля формы!`);
     }
   };
@@ -100,19 +127,33 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
         />
       </div>
       <div className="input__buttons">
-        <ImageButton
-          src={iconSave}
-          alt="Save"
-          theme="save"
-          disabled={disabled}
-          onClick={handleSubmit}
-        />
-        <ImageButton
-          src={iconCancel}
-          alt="Cancel"
-          theme="cancel"
-          onClick={handleReturnedValue}
-        />
+        {forAdd ? (
+          <ImageButton
+            src={iconSave}
+            alt="Save"
+            theme="save"
+            disabled={disabled}
+            onClick={handleSubmit}
+          />
+        ) : (
+          <>
+            <ImageButton
+              src={iconSave}
+              alt="Save"
+              theme="save"
+              disabled={disabled}
+              onClick={handleSubmit}
+            />
+            <ImageButton
+              src={iconCancel}
+              alt="Cancel"
+              theme="cancel"
+              onClick={() => {
+                setReturnedValue(!returnedValue);
+              }}
+            />
+          </>
+        )}
       </div>
     </form>
   );

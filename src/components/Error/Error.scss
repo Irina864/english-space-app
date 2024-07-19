@@ -1,0 +1,20 @@
+@import '../../template';
+@import '../../variables';
+
+.serverError {
+  display: flex;
+  @include flex(column, center, center);
+  border: 0.2rem solid $colorBorderDark;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    0deg,
+    $colorBackgroundCardFirst 0%,
+    $colorBackgroundWhite 80%,
+    $colorBackgroundCardSecond 100%
+  );
+  @include font($font1, 3rem, $colorTextDark, 700);
+  text-align: center;
+  @include _mobile {
+    font-size: 1.5rem;
+  }
+}

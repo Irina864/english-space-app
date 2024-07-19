@@ -6,7 +6,7 @@
   grid-template-rows: 150px 1fr;
   margin: 0 auto;
   max-width: 1920px;
-  min-height: 100vh;
+  min-height: 20vh;
   @include _mobile {
     grid-template-rows: 100px 1fr;
   }

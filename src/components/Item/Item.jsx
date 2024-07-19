@@ -4,7 +4,11 @@ import Input from '../Input/Input';
 import iconEdit from '../../images/icon-edit.png';
 import iconDelete from '../../images/icon-delete.png';
 import './Item.css';
+
+import { useContext } from 'react';
+import { DataContext } from '../context';
 function Item({
+  id,
   index,
   english,
   transcription,
@@ -13,12 +17,14 @@ function Item({
   onCardClick,
   ...props
 }) {
+  const { deleteWord } = useContext(DataContext);
   const [editingWordMode, setEditingWordMode] = useState(false);
   const handleEditingWordMode = () => {
     setEditingWordMode(!editingWordMode);
   };
   return editingWordMode ? (
     <Input
+      id={id}
       index={index}
       english={english}
       transcription={transcription}
@@ -41,7 +47,12 @@ function Item({
           theme="edit"
           onClick={handleEditingWordMode}
         />
-        <ImageButton src={iconDelete} alt="Delete" theme="delete" />
+        <ImageButton
+          src={iconDelete}
+          alt="Delete"
+          theme="delete"
+          onClick={() => deleteWord(id)}
+        />
       </div>
     </div>
   );

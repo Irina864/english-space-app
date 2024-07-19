@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { useContext } from 'react';
+import { DataContext } from '../context';
 import Card from '../Card/Card';
+import Error from '../Error/Error';
 import ImageButton from '../ImageButton/ImageButton';
 import arrowLeftImage from '../../images/arrow-left.png';
 import arrowRightImage from '../../images/arrow-right.png';
 import './Slider.css';
-function Slider(props = 'Server unavailable now') {
-  const data = props.data;
+
+function Slider() {
+  const { dictionary, error } = useContext(DataContext);
+  // console.log('dictionary from Slider ' + dictionary);
   const { index } = useParams();
   const initialIndex = index ? parseInt(index, 10) : 0;
   const [showedCardIndex, setShowedCardIndex] = useState(
@@ -23,7 +27,7 @@ function Slider(props = 'Server unavailable now') {
       : setShowedCardIndex(showedCardIndex - 1);
   };
   const handleShowedCardIndexRigth = () => {
-    showedCardIndex + 1 < data.length
+    showedCardIndex + 1 < dictionary.length
       ? setShowedCardIndex(showedCardIndex + 1)
       : setShowedCardIndex(0);
   };
@@ -31,7 +35,7 @@ function Slider(props = 'Server unavailable now') {
   const handleCount = (e) => {
     setCount(count + 1);
   };
-  return (
+  return error === null ? (
     <div className="slider">
       <div className="counter">Вы знаете: {count} &#40;слов&#41;</div>
       <div className="slider__box">
@@ -46,13 +50,13 @@ function Slider(props = 'Server unavailable now') {
           />
         </div>
         <Card
-          key={data[showedCardIndex].id}
+          key={dictionary[showedCardIndex].id}
           index={showedCardIndex}
-          english={data[showedCardIndex].english}
-          transcription={data[showedCardIndex].transcription}
-          russian={data[showedCardIndex].russian}
-          tags={data[showedCardIndex].tags}
-          tags_json={data[showedCardIndex].tags_json}
+          english={dictionary[showedCardIndex].english}
+          transcription={dictionary[showedCardIndex].transcription}
+          russian={dictionary[showedCardIndex].russian}
+          tags={dictionary[showedCardIndex].tags}
+          tags_json={dictionary[showedCardIndex].tags_json}
           onClickAddCount={() => handleCount()}
         />
         <div
@@ -67,6 +71,8 @@ function Slider(props = 'Server unavailable now') {
         </div>
       </div>
     </div>
+  ) : (
+    <Error />
   );
 }
 export default Slider;
