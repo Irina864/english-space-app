@@ -1,20 +1,38 @@
 import Item from '../Item/Item';
 import Input from '../Input/Input';
 import './Table.css';
+import Loading from '../Loading/Loading';
 import { useNavigate } from 'react-router-dom';
+import { wordStoreContext } from '../../store/store';
+import { useContext, useState } from 'react';
+import Error from '../Error/Error';
 
-function Table(props) {
-  const data = props.data;
+function Table() {
+  const dictionary = useContext(wordStoreContext);
+  //  Бесконечная загрузка без этого блока
+  // Не знаю, как заставить реагировать на изменение dictionary.loading без useState и setTimeout
+  const [isLoading, setIsLoading] = useState(dictionary.loading);
+  setTimeout(() => {
+    setIsLoading(dictionary.loading);
+  }, 5000);
+  //  Бесконечная загрузка без этого блока
+
   const navigate = useNavigate();
   const handleCardClick = (index) => {
     navigate(`/cards/${index}`);
   };
-  return (
+
+  return isLoading ? (
+    <Loading />
+  ) : dictionary.error ? (
+    <Error />
+  ) : (
     <main className="table">
-      <Input />
-      {data.map((i, index) => (
+      <Input forAdd={true} />
+      {dictionary.words.map((i, index) => (
         <Item
           key={i.id}
+          id={i.id}
           index={index}
           english={i.english}
           transcription={i.transcription}
