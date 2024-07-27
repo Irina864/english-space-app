@@ -30,6 +30,8 @@ function Input({
   });
   const [disabled, setDisabled] = useState(false);
   const handleChangeState = (e) => {
+    const englishLettersRegex = /^[a-zA-Z\s]*$/;
+    const russianLettersRegex = /^[а-яА-ЯёЁ\s]*$/;
     const value = e.target.value;
     const fieldName = e.target.name;
     setState((prevState) => ({
@@ -44,7 +46,11 @@ function Input({
       [fieldName]: value,
       tags_json: fieldName === 'tags' ? `["${e.target.value}"]` : '',
     }));
-    if (value.trim() === '') {
+    if (
+      value.trim() === '' ||
+      (fieldName === 'english' && !englishLettersRegex.test(value)) ||
+      (fieldName === 'russian' && !russianLettersRegex.test(value))
+    ) {
       setDisabled(true);
       e.target.className = 'input__item empty';
     } else {
