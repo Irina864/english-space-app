@@ -28,10 +28,17 @@ function Slider() {
       ? setShowedCardIndex(showedCardIndex + 1)
       : setShowedCardIndex(0);
   };
+
+  const [wordIsAdded, setWordIsAdded] = useState([]);
   const [count, setCount] = useState(0);
-  const handleCount = (e) => {
-    setCount(count + 1);
+  const handleWordIsAdded = (addingWordId) => {
+    setWordIsAdded(new Set([...wordIsAdded, addingWordId]));
   };
+  useEffect(() => {
+    if (wordIsAdded.size !== 0) {
+      setCount(wordIsAdded.size);
+    }
+  }, [wordIsAdded]);
   return (
     <div className="slider">
       <div className="counter">Вы знаете: {count} &#40;слов&#41;</div>
@@ -48,13 +55,16 @@ function Slider() {
         </div>
         <Card
           key={dictionaryWords[showedCardIndex].id}
+          id={dictionaryWords[showedCardIndex].id}
           index={showedCardIndex}
           english={dictionaryWords[showedCardIndex].english}
           transcription={dictionaryWords[showedCardIndex].transcription}
           russian={dictionaryWords[showedCardIndex].russian}
           tags={dictionaryWords[showedCardIndex].tags}
           tags_json={dictionaryWords[showedCardIndex].tags_json}
-          onClickAddCount={() => handleCount()}
+          onClickAddCount={() =>
+            handleWordIsAdded(dictionaryWords[showedCardIndex].id)
+          }
         />
         <div
           className="slider__cardchangerbtn"

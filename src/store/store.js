@@ -14,7 +14,7 @@ class WordStore {
   async loadDictionary() {
     try {
       const response = await fetch(
-        'http://itgirlschool.justmakeit.ru/api/words '
+        'api/words '
       );
       const data = await response.json();
       this.words = data;
@@ -30,7 +30,7 @@ class WordStore {
     this.loading = true;
     try {
       const response = await fetch(
-        'http://itgirlschool.justmakeit.ru/api/words/add',
+        'api/words/add',
         {
           mode: 'no-cors',
           method: 'POST',
@@ -53,7 +53,7 @@ class WordStore {
   async updateWord(updatedInfo) {
     try {
       const response = await fetch(
-        `http://itgirlschool.justmakeit.ru/api/words/${updatedInfo.id}/update`,
+        `api/words/${updatedInfo.id}/update`,
         {
           method: 'POST',
           headers: {
@@ -78,7 +78,7 @@ class WordStore {
   async removeWord(id) {
     try {
       const response = await fetch(
-        `http://itgirlschool.justmakeit.ru/api/words/${id}/delete`,
+        `api/words/${id}/delete`,
         {
           method: 'POST',
           headers: {
