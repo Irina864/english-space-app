@@ -8,11 +8,11 @@ import { wordStore } from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider wordStore={{ wordStore }}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <Provider wordStore={{ wordStore }}>
       <App />
-    </React.StrictMode>
-  </Provider>
+    </Provider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

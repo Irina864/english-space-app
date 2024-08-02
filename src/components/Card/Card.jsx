@@ -3,14 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import './Card.css';
 import image from '../../images/kitten.png';
 
-function Card({
-  id,
-  english,
-  transcription,
-  russian,
-  onClickAddCount,
-  ...props
-}) {
+function Card({ id, english, transcription, russian, onClickAddCount }) {
   const [showedTranslation, setShowedTranslation] = useState(false);
   const handleShowedTranslation = () => {
     setShowedTranslation(!showedTranslation);

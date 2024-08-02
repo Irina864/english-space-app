@@ -7,6 +7,7 @@ import iconCancel from '../../images/icon-cancel.png';
 import './Input.css';
 
 function Input({
+  key,
   id,
   index,
   english,
@@ -29,6 +30,7 @@ function Input({
     tags_json: tags_json || '',
   });
   const [disabled, setDisabled] = useState(false);
+
   const handleChangeState = (e) => {
     const englishLettersRegex = /^[a-zA-Z\s]*$/;
     const russianLettersRegex = /^[а-яА-ЯёЁ\s]*$/;
@@ -37,15 +39,16 @@ function Input({
     setState((prevState) => ({
       ...prevState,
       id:
-        prevState.id === ''
-          ? dictionaryWords.reduce(
+        prevState.id !== ''
+          ? prevState.id
+          : dictionaryWords.reduce(
               (max, dictionaryWords) => Math.max(max, dictionaryWords.id),
               0
-            ) + 1
-          : prevState.id,
+            ) + 1,
       [fieldName]: value,
       tags_json: fieldName === 'tags' ? `["${e.target.value}"]` : '',
     }));
+    console.log(state);
     if (
       value.trim() === '' ||
       (fieldName === 'english' && !englishLettersRegex.test(value)) ||
@@ -58,6 +61,7 @@ function Input({
       e.target.className = 'input__item';
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const mistakes = [];
@@ -67,6 +71,7 @@ function Input({
         mistakes.push('empty input');
       }
     });
+    console.log(state);
     if (mistakes.length === 0) {
       if (forAdd) {
         dictionary.addNewWord(state);
@@ -83,6 +88,7 @@ function Input({
 
   return returnedValue ? (
     <Item
+      id={id}
       index={index}
       english={english}
       transcription={transcription}

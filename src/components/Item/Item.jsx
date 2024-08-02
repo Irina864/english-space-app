@@ -21,8 +21,15 @@ function Item({
   const handleEditingWordMode = () => {
     setEditingWordMode(!editingWordMode);
   };
+
+  const handleDelete = () => {
+    console.log(id);
+    dictionary.removeWord(id);
+  };
+
   return editingWordMode ? (
     <Input
+      id={id}
       index={index}
       english={english}
       transcription={transcription}
@@ -49,7 +56,7 @@ function Item({
           src={iconDelete}
           alt="Delete"
           theme="delete"
-          onClick={() => dictionary.removeWord(id)}
+          onClick={handleDelete}
         />
       </div>
     </div>

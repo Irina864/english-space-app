@@ -8,14 +8,16 @@ class WordStore {
 
   constructor() {
     makeAutoObservable(this);
-    this.loadDictionary();
   }
 
   async loadDictionary() {
+    this.loading = true;
+    this.error = false;
     try {
-      const response = await fetch(
-        'api/words '
-      );
+      const response = await fetch(`/api/words`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
       const data = await response.json();
       this.words = data;
       this.loading = false;
@@ -29,19 +31,16 @@ class WordStore {
   async addNewWord(newWord) {
     this.loading = true;
     try {
-      const response = await fetch(
-        'api/words/add',
-        {
-          mode: 'no-cors',
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newWord),
-        }
-      );
+      const response = await fetch(`/api/words/add`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newWord),
+      });
       if (response.status === 200) {
-        this.words = [...this.words, newWord];
+        this.words.push(newWord);
+        this.loadDictionary();
       }
       this.loading = false;
     } catch (error) {
@@ -50,48 +49,48 @@ class WordStore {
       this.loading = false;
     }
   }
+
   async updateWord(updatedInfo) {
+    this.loading = true;
     try {
-      const response = await fetch(
-        `api/words/${updatedInfo.id}/update`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(updatedInfo),
-        }
-      );
+      const response = await fetch(`/api/words/${updatedInfo.id}/update`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedInfo),
+      });
       if (response.ok) {
         console.log(updatedInfo);
-        this.words.map((word) =>
+        this.words.forEach((word) =>
           word.id === updatedInfo.id ? updatedInfo : word
         );
-        this.loading = false;
       }
+      this.loadDictionary();
+      this.loading = false;
     } catch (error) {
       console.error(`Updating word error: ${error}`);
       this.error = true;
       this.loading = false;
     }
   }
+
   async removeWord(id) {
+    this.loading = true;
     try {
-      const response = await fetch(
-        `api/words/${id}/delete`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const response = await fetch(`/api/words/${id}/delete`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       if (response.ok) {
         this.words = this.words.filter((word) => word.id !== id);
-        console.log(this.words);
       } else {
         throw new Error('Word was not deleted');
       }
+      this.loadDictionary();
+      this.loading = false;
     } catch (error) {
       console.error(`Deleting word error: ${error}`);
       this.error = true;

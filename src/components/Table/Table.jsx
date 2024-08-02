@@ -1,30 +1,42 @@
+import React, { useContext, useState, useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
+import { wordStoreContext } from '../../store/store';
+import { useNavigate } from 'react-router-dom';
+
 import Item from '../Item/Item';
 import Input from '../Input/Input';
-import './Table.css';
 import Loading from '../Loading/Loading';
-import { useNavigate } from 'react-router-dom';
-import { wordStoreContext } from '../../store/store';
-import { useContext, useState } from 'react';
 import Error from '../Error/Error';
+import './Table.css';
 
-function Table() {
+const Table = observer(() => {
   const dictionary = useContext(wordStoreContext);
-  //  Бесконечная загрузка без этого блока
-  // Не знаю, как заставить реагировать на изменение dictionary.loading без useState и setTimeout
-  const [isLoading, setIsLoading] = useState(dictionary.loading);
-  setTimeout(() => {
-    setIsLoading(dictionary.loading);
-  }, 5000);
-  //  Бесконечная загрузка без этого блока
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await dictionary.loadDictionary();
+        setIsLoading(dictionary.loading);
+        setError(dictionary.error);
+      } catch (error) {
+        setError(true);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [dictionary]);
 
   const navigate = useNavigate();
   const handleCardClick = (index) => {
     navigate(`/cards/${index}`);
   };
-
+  console.log(dictionary);
   return isLoading ? (
     <Loading />
-  ) : dictionary.error ? (
+  ) : error ? (
     <Error />
   ) : (
     <main className="table">
@@ -44,5 +56,6 @@ function Table() {
       ))}
     </main>
   );
-}
+});
+
 export default Table;
