@@ -2,7 +2,6 @@ import './Loading.css';
 
 function Loading() {
   return (
-    // <div className="load__Text">Loading...</div>
     <div className="floatingCirclesG">
       <div className="f_circleG frotateG_01"></div>
       <div className="f_circleG frotateG_02"></div>

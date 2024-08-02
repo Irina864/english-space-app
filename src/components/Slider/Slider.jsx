@@ -1,17 +1,16 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useContext } from 'react';
-import { DataContext } from '../context';
 import Card from '../Card/Card';
 import Error from '../Error/Error';
 import ImageButton from '../ImageButton/ImageButton';
 import arrowLeftImage from '../../images/arrow-left.png';
 import arrowRightImage from '../../images/arrow-right.png';
 import './Slider.css';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { DataContext } from '../context';
 
 function Slider() {
   const { dictionary, error } = useContext(DataContext);
-  // console.log('dictionary from Slider ' + dictionary);
   const { index } = useParams();
   const initialIndex = index ? parseInt(index, 10) : 0;
   const [showedCardIndex, setShowedCardIndex] = useState(

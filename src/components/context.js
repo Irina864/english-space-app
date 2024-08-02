@@ -9,20 +9,23 @@ export const ApiInfo = (props) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    fetchDictionary();
+  }, []);
+
+  const fetchDictionary = () => {
+    setLoading(true);
     fetch('http://itgirlschool.justmakeit.ru/api/words')
       .then((response) => response.json())
       .then((data) => {
         setDictionary(data);
-        //check
-        // console.log(data);
-        //check
+        console.log(data);
       })
       .catch((error) => {
         console.error(`Fetching word information error: ${error}`);
         setError(error);
       })
       .finally(() => setLoading(false));
-  }, [dictionary]);
+  };
 
   const addNewWord = async (newWord) => {
     try {
@@ -39,7 +42,7 @@ export const ApiInfo = (props) => {
       );
       if (response.status === 200) {
         dictionary.push(newWord);
-        setDictionary([...dictionary]);
+        setDictionary((prevDictionary) => [...prevDictionary, newWord]);
       }
     } catch (error) {
       console.error(`Adding word error: ${error}`);
@@ -47,58 +50,55 @@ export const ApiInfo = (props) => {
     }
   };
 
-  const updateWord = (updatedInfo) => {
-    //check
-    console.log(updatedInfo);
-    //check
-    setLoading(true);
-    fetch(
-      `http://itgirlschool.justmakeit.ru/api/words/${updatedInfo.id} /update`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedInfo),
+  const updateWord = async (updatedInfo) => {
+    try {
+      const response = await fetch(
+        `http://itgirlschool.justmakeit.ru/api/words/${updatedInfo.id}/update`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedInfo),
+        }
+      );
+      if (response.ok) {
+        setDictionary((prevDictionary) =>
+          prevDictionary.map((word) =>
+            word.id === updatedInfo.id ? updatedInfo : word
+          )
+        );
       }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(`Updating word error: ${error}`);
-        setError(error);
-      })
-      .finally(setLoading(false));
+    } catch (error) {
+      console.error(`Updating word error: ${error}`);
+      setError(error);
+    }
   };
 
-  const deleteWord = (id) => {
-    //check
-    console.log(id);
-    //check
-    setLoading(true);
-    fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Word was not deleted');
+  const deleteWord = async (id) => {
+    try {
+      const response = await fetch(
+        `http://itgirlschool.justmakeit.ru/api/words/${id}/delete`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
         }
-        const editedDictionary = [...dictionary].filter(
-          (word) => word.id !== id
+      );
+      if (response.ok) {
+        setDictionary((prevDictionary) =>
+          prevDictionary.filter((word) => word.id !== id)
         );
-        setDictionary(editedDictionary);
-      })
-      .catch((error) => {
-        console.error(`Deleting word error: ${error}`);
-        setError(error);
-      })
-      .finally(setLoading(false));
+      } else {
+        throw new Error('Word was not deleted');
+      }
+    } catch (error) {
+      console.error(`Deleting word error: ${error}`);
+      setError(error);
+    }
   };
+
   if (isLoading) {
     return <Loading />;
   }

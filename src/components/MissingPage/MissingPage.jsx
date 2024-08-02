@@ -1,5 +1,5 @@
-import './MissingPage.css';
 import image from '../../images/cat-two-bows-sitting.png';
+import './MissingPage.css';
 import { Link } from 'react-router-dom';
 
 function MissingPage() {

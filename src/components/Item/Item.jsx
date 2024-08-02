@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import ImageButton from '../ImageButton/ImageButton';
 import Input from '../Input/Input';
 import iconEdit from '../../images/icon-edit.png';
 import iconDelete from '../../images/icon-delete.png';
 import './Item.css';
-
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { DataContext } from '../context';
+
 function Item({
   id,
   index,

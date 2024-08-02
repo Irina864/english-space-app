@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import Item from '../Item/Item';
 import ImageButton from '../ImageButton/ImageButton';
 import iconSave from '../../images/icon-save.png';
 import iconCancel from '../../images/icon-cancel.png';
 import './Input.css';
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { DataContext } from '../context';
 
 function Input({
@@ -62,9 +61,6 @@ function Input({
       }
     });
     if (mistakes.length === 0) {
-      //check
-      console.log(state);
-      //check
       if (forAdd) {
         addNewWord(state);
         setReturnedValue(returnedValue);
@@ -74,15 +70,13 @@ function Input({
         setReturnedValue(!returnedValue);
       }
     } else {
-      //check
-      console.log(mistakes);
-      //check
       alert(`Заполните все поля формы!`);
     }
   };
 
   return returnedValue ? (
     <Item
+      id={id}
       index={index}
       english={english}
       transcription={transcription}

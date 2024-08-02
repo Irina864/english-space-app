@@ -1,19 +1,19 @@
 import Item from '../Item/Item';
 import Input from '../Input/Input';
+import Error from '../Error/Error';
 import './Table.css';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { DataContext } from '../context';
-import Error from '../Error/Error';
 
 function Table() {
   const { dictionary, error } = useContext(DataContext);
 
-  // console.log('dictionary from Table ' + dictionary);
   const navigate = useNavigate();
   const handleCardClick = (index) => {
     navigate(`/cards/${index}`);
   };
+
   return error === null ? (
     <main className="table">
       <Input forAdd={true} />

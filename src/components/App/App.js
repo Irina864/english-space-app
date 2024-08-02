@@ -4,7 +4,6 @@ import Slider from '../Slider/Slider';
 import Table from '../Table/Table';
 import MissingPage from '../MissingPage/MissingPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import data from '../../data/data.json';
 import { ApiInfo } from '../context';
 import './App.css';
 
