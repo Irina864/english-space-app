@@ -1,7 +1,3 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { observer } from 'mobx-react-lite';
-import { useParams } from 'react-router-dom';
-import { wordStoreContext } from '../../store/store';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 import Card from '../Card/Card';
@@ -9,6 +5,10 @@ import ImageButton from '../ImageButton/ImageButton';
 import arrowLeftImage from '../../images/arrow-left.png';
 import arrowRightImage from '../../images/arrow-right.png';
 import './Slider.css';
+import React, { useContext, useState, useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useParams } from 'react-router-dom';
+import { wordStoreContext } from '../../store/store';
 
 const Slider = observer(() => {
   const dictionary = useContext(wordStoreContext);

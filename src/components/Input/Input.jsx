@@ -1,13 +1,12 @@
-import { wordStoreContext } from '../../store/store';
-import { useContext, useState } from 'react';
 import Item from '../Item/Item';
 import ImageButton from '../ImageButton/ImageButton';
 import iconSave from '../../images/icon-save.png';
 import iconCancel from '../../images/icon-cancel.png';
 import './Input.css';
+import { wordStoreContext } from '../../store/store';
+import { useContext, useState } from 'react';
 
 function Input({
-  key,
   id,
   index,
   english,
@@ -20,6 +19,7 @@ function Input({
 }) {
   const dictionary = useContext(wordStoreContext);
   const dictionaryWords = useContext(wordStoreContext).words;
+  const [disabled, setDisabled] = useState(true);
   const [returnedValue, setReturnedValue] = useState(false);
   const [state, setState] = useState({
     id: id || '',
@@ -27,9 +27,8 @@ function Input({
     transcription: transcription || '',
     russian: russian || '',
     tags: tags || '',
-    tags_json: tags_json || '',
+    tags_json: tags_json || `["${tags}"]`,
   });
-  const [disabled, setDisabled] = useState(false);
 
   const handleChangeState = (e) => {
     const englishLettersRegex = /^[a-zA-Z\s]*$/;
@@ -46,9 +45,8 @@ function Input({
               0
             ) + 1,
       [fieldName]: value,
-      tags_json: fieldName === 'tags' ? `["${e.target.value}"]` : '',
+      tags_json: fieldName === 'tags' ? `["${e.target.value}"]` : `[""]`,
     }));
-    console.log(state);
     if (
       value.trim() === '' ||
       (fieldName === 'english' && !englishLettersRegex.test(value)) ||
@@ -64,15 +62,18 @@ function Input({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const mistakes = [];
-    const states = Object.keys(state);
-    states.forEach((item) => {
-      if (state[item] === '') {
-        mistakes.push('empty input');
-      }
-    });
-    console.log(state);
-    if (mistakes.length === 0) {
+    // const mistakes = [];
+    // const states = Object.keys(state);
+    // states.forEach((item) => {
+    //   if (state[item] === '') {
+    //     mistakes.push('empty input');
+    //   }
+    // });
+    // if (mistakes.length === 0) {
+    const isFormValid = Object.values(state).every((value) => value !== '');
+
+    if (isFormValid) {
+      setDisabled(false);
       if (forAdd) {
         dictionary.addNewWord(state);
         setReturnedValue(returnedValue);
@@ -82,6 +83,8 @@ function Input({
         setReturnedValue(!returnedValue);
       }
     } else {
+      console.log(state);
+      setDisabled(true);
       alert(`Заполните все поля формы!`);
     }
   };

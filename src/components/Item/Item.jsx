@@ -23,7 +23,6 @@ function Item({
   };
 
   const handleDelete = () => {
-    console.log(id);
     dictionary.removeWord(id);
   };
 

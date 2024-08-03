@@ -7,7 +7,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap");
 .item {
   display: grid;
-  grid-template-columns: 85% 15%;
+  grid-template-columns: 90% 10%;
   align-items: center;
   padding: 0.7rem 0.5rem;
   border-top: 1px solid rgb(162, 0, 0);
@@ -24,9 +24,9 @@
   display: grid;
   grid-template-columns: repeat(4, 25%);
 }
-@media (max-width: 425px) {
+@media (max-width: 580px) {
   .item .item__word {
-    grid-template-columns: repeat(3, 33%);
+    grid-template: 35% 65%/repeat(3, 33%);
   }
 }
 .item .item__word .item__item {
@@ -40,22 +40,28 @@
   font-weight: 600;
   text-align: center;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .item .item__word .item__item {
     font-size: 1.15rem;
   }
 }
 @media (max-width: 768px) {
   .item .item__word .item__item {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 580px) {
+  .item .item__word .item__item {
     font-size: 0.8rem;
+  }
+  .item .item__word .item__item:last-child {
+    grid-area: 1/1/2/4;
+    color: #5386cc;
   }
 }
 @media (max-width: 425px) {
   .item .item__word .item__item {
-    font-size: 0.7rem;
-  }
-  .item .item__word .item__item:last-child {
-    display: none;
+    font-size: 0.75rem;
   }
 }
 .item .item__buttons {
@@ -63,6 +69,8 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
 }
 @media (max-width: 425px) {
   .item .item__buttons {

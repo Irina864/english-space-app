@@ -1,6 +1,6 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, configure } from 'mobx';
 import { createContext } from 'react';
-
+configure({ enforceActions: false });
 class WordStore {
   words = [];
   loading = true;
@@ -61,7 +61,6 @@ class WordStore {
         body: JSON.stringify(updatedInfo),
       });
       if (response.ok) {
-        console.log(updatedInfo);
         this.words.forEach((word) =>
           word.id === updatedInfo.id ? updatedInfo : word
         );

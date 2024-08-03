@@ -7,10 +7,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap");
 .App {
   display: grid;
-  grid-template-rows: 150px 1fr;
+  grid-template-rows: 150px minmax(0, 1fr);
   margin: 0 auto;
   max-width: 1920px;
-  min-height: 20vh;
+  min-height: 100vh;
 }
 @media (max-width: 425px) {
   .App {

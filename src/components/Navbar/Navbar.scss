@@ -5,7 +5,6 @@
   display: flex;
   @include flex(row, space-around, center);
   min-width: 40%;
-
   .nav__item {
     @include font($font1, 1.5rem, $colorTextDark, 700);
     text-decoration: none;

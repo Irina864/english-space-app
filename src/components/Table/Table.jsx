@@ -1,13 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { observer } from 'mobx-react-lite';
-import { wordStoreContext } from '../../store/store';
-import { useNavigate } from 'react-router-dom';
-
 import Item from '../Item/Item';
 import Input from '../Input/Input';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 import './Table.css';
+import React, { useContext, useState, useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
+import { wordStoreContext } from '../../store/store';
+import { useNavigate } from 'react-router-dom';
 
 const Table = observer(() => {
   const dictionary = useContext(wordStoreContext);
@@ -33,7 +32,7 @@ const Table = observer(() => {
   const handleCardClick = (index) => {
     navigate(`/cards/${index}`);
   };
-  console.log(dictionary);
+
   return isLoading ? (
     <Loading />
   ) : error ? (
