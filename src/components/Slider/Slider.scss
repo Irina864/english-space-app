@@ -3,17 +3,23 @@
 
 .slider {
   display: grid;
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 15% 85%;
+  height: 100%;
   @include _mobile {
-    grid-template-rows: 7% 93%;
+    grid-template-rows: 10% 90%;
   }
   .counter {
     grid-area: 1/1/2/2;
     display: flex;
-    @include flex(column, center, center);
+    @include flex(row, flex-end, flex-end);
+    padding-right: 10%;
     @include font($font2, 2.5rem, $colorTextMedium, 700);
     @include _tablet {
       font-size: 1.8rem;
+    }
+    @include _intermediate {
+      @include flex(row, center, flex-end);
+      padding-right: 0;
     }
     @include _mobile {
       font-size: 1.5rem;
@@ -23,6 +29,7 @@
     grid-area: 2/1/3/2;
     display: flex;
     @include flex(row, space-around, center);
+    gap: 2px;
     .slider__cardchangerbtn {
       height: 80%;
     }

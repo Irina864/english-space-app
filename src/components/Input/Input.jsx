@@ -1,35 +1,57 @@
-import { useState } from 'react';
 import Item from '../Item/Item';
 import ImageButton from '../ImageButton/ImageButton';
 import iconSave from '../../images/icon-save.png';
 import iconCancel from '../../images/icon-cancel.png';
 import './Input.css';
+import { wordStoreContext } from '../../store/store';
+import { useContext, useState } from 'react';
 
-function Input({ index, english, transcription, russian, tags, ...props }) {
+function Input({
+  id,
+  index,
+  english,
+  transcription,
+  russian,
+  tags,
+  tags_json,
+  forAdd,
+  ...props
+}) {
+  const dictionary = useContext(wordStoreContext);
+  const dictionaryWords = useContext(wordStoreContext).words;
+  const [disabled, setDisabled] = useState(true);
   const [returnedValue, setReturnedValue] = useState(false);
-  const handleReturnedValue = () => {
-    state.english === '' &&
-    state.transcription === '' &&
-    state.russian === '' &&
-    state.tags === ''
-      ? setReturnedValue(returnedValue)
-      : setReturnedValue(!returnedValue);
-  };
   const [state, setState] = useState({
+    id: id || '',
     english: english || '',
     transcription: transcription || '',
     russian: russian || '',
     tags: tags || '',
+    tags_json: tags_json || `["${tags}"]`,
   });
-  const [disabled, setDisabled] = useState(false);
+
   const handleChangeState = (e) => {
+    const englishLettersRegex = /^[a-zA-Z\s]*$/;
+    const russianLettersRegex = /^[а-яА-ЯёЁ\s]*$/;
     const value = e.target.value;
     const fieldName = e.target.name;
     setState((prevState) => ({
       ...prevState,
+      id:
+        prevState.id !== ''
+          ? prevState.id
+          : dictionaryWords.reduce(
+              (max, dictionaryWords) => Math.max(max, dictionaryWords.id),
+              0
+            ) + 1,
       [fieldName]: value,
+      tags_json: fieldName === 'tags' ? `["${e.target.value}"]` : `[""]`,
     }));
-    if (value.trim() === '') {
+    if (
+      value.trim() === '' ||
+      (fieldName === 'english' && !englishLettersRegex.test(value)) ||
+      (fieldName === 'russian' && !russianLettersRegex.test(value))
+    ) {
       setDisabled(true);
       e.target.className = 'input__item empty';
     } else {
@@ -37,25 +59,39 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
       e.target.className = 'input__item';
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const mistakes = [];
-    const states = Object.keys(state);
-    states.forEach((item) => {
-      if (state[item] === '') {
-        mistakes.push('empty input');
+    // const mistakes = [];
+    // const states = Object.keys(state);
+    // states.forEach((item) => {
+    //   if (state[item] === '') {
+    //     mistakes.push('empty input');
+    //   }
+    // });
+    // if (mistakes.length === 0) {
+    const isFormValid = Object.values(state).every((value) => value !== '');
+
+    if (isFormValid) {
+      setDisabled(false);
+      if (forAdd) {
+        dictionary.addNewWord(state);
+        setReturnedValue(returnedValue);
+        setState({ english: '', transcription: '', russian: '', tags: '' });
+      } else {
+        dictionary.updateWord(state);
+        setReturnedValue(!returnedValue);
       }
-    });
-    if (mistakes.length === 0) {
-      console.log(state);
-      setReturnedValue(!returnedValue);
     } else {
+      console.log(state);
+      setDisabled(true);
       alert(`Заполните все поля формы!`);
     }
   };
 
   return returnedValue ? (
     <Item
+      id={id}
       index={index}
       english={english}
       transcription={transcription}
@@ -100,19 +136,33 @@ function Input({ index, english, transcription, russian, tags, ...props }) {
         />
       </div>
       <div className="input__buttons">
-        <ImageButton
-          src={iconSave}
-          alt="Save"
-          theme="save"
-          disabled={disabled}
-          onClick={handleSubmit}
-        />
-        <ImageButton
-          src={iconCancel}
-          alt="Cancel"
-          theme="cancel"
-          onClick={handleReturnedValue}
-        />
+        {forAdd ? (
+          <ImageButton
+            src={iconSave}
+            alt="Save"
+            theme="save"
+            disabled={disabled}
+            onClick={handleSubmit}
+          />
+        ) : (
+          <>
+            <ImageButton
+              src={iconSave}
+              alt="Save"
+              theme="save"
+              disabled={disabled}
+              onClick={handleSubmit}
+            />
+            <ImageButton
+              src={iconCancel}
+              alt="Cancel"
+              theme="cancel"
+              onClick={() => {
+                setReturnedValue(!returnedValue);
+              }}
+            />
+          </>
+        )}
       </div>
     </form>
   );

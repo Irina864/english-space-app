@@ -7,27 +7,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap");
 .slider {
   display: grid;
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 15% 85%;
+  height: 100%;
 }
 @media (max-width: 425px) {
   .slider {
-    grid-template-rows: 7% 93%;
+    grid-template-rows: 10% 90%;
   }
 }
 .slider .counter {
   grid-area: 1/1/2/2;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 10%;
   font-family: "Comfortaa", sans-serif;
   font-size: 2.5rem;
-  color: #6792ce;
+  color: #5386cc;
   font-weight: 700;
 }
 @media (max-width: 768px) {
   .slider .counter {
     font-size: 1.8rem;
+  }
+}
+@media (max-width: 580px) {
+  .slider .counter {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 0;
   }
 }
 @media (max-width: 425px) {
@@ -41,6 +51,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  gap: 2px;
 }
 .slider .slider__box .slider__cardchangerbtn {
   height: 80%;

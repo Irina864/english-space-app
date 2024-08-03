@@ -5,31 +5,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap");
-.nav {
+.serverError {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  min-width: 40%;
-}
-.nav .nav__item {
+  border: 0.2rem solid rgb(162, 0, 0);
+  border-radius: 0.5rem;
+  background: linear-gradient(0deg, #e1f0ff 0%, #ffffff 80%, #ffeaf0 100%);
   font-family: "Nunito", sans-serif;
-  font-size: 1.5rem;
+  font-size: 3rem;
   color: #00338b;
   font-weight: 700;
-  text-decoration: none;
+  text-align: center;
 }
 @media (max-width: 425px) {
-  .nav .nav__item {
-    font-size: 1.1rem;
+  .serverError {
+    font-size: 1.5rem;
   }
-}
-.nav .nav__item:hover {
-  color: #5386cc;
-}
-@media (max-width: 768px) {
-  .nav {
-    margin-bottom: 1%;
-    width: 100%;
-  }
-}/*# sourceMappingURL=Navbar.css.map */
+}/*# sourceMappingURL=Error.css.map */

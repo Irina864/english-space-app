@@ -1,9 +1,9 @@
 import Button from '../Button/Button';
-import { useState, useEffect, useRef } from 'react';
-import './Card.css';
 import image from '../../images/kitten.png';
+import './Card.css';
+import { useState, useEffect, useRef } from 'react';
 
-function Card({ english, transcription, russian, onClickAddCount, ...props }) {
+function Card({ id, english, transcription, russian, onClickAddCount }) {
   const [showedTranslation, setShowedTranslation] = useState(false);
   const handleShowedTranslation = () => {
     setShowedTranslation(!showedTranslation);
@@ -40,7 +40,7 @@ function Card({ english, transcription, russian, onClickAddCount, ...props }) {
         <Button
           nameButton="Я знаю это слово"
           theme="know"
-          onClick={onClickAddCount}
+          onClick={() => onClickAddCount(id)}
         />
       </div>
     </main>

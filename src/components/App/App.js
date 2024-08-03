@@ -3,9 +3,8 @@ import Header from '../Header/Header';
 import Slider from '../Slider/Slider';
 import Table from '../Table/Table';
 import MissingPage from '../MissingPage/MissingPage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import data from '../../data/data.json';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const favicon = document.querySelector('link[rel="icon"]');
@@ -15,11 +14,13 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Routes className="main">
-          <Route path="/" element={<Table data={data} />} />
-          <Route path="/cards/:index" element={<Slider data={data} />} />
-          <Route path="*" element={<MissingPage />} />
-        </Routes>
+        <div className="main">
+          <Routes>
+            <Route path="/" element={<Table />} />
+            <Route path="/cards/:index" element={<Slider />} />
+            <Route path="*" element={<MissingPage />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

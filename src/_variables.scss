@@ -1,5 +1,5 @@
 $colorTextLight: #ffffff;
-$colorTextMedium: #6792ce;
+$colorTextMedium: #5386cc;
 $colorTextDark: #00338b;
 
 $colorBorderDark: rgb(162, 0, 0);
@@ -16,10 +16,10 @@ $font1: 'Nunito', sans-serif;
 $font2: 'Comfortaa', sans-serif;
 $colorEmptyInput: rgb(255, 228, 236);
 
-$colorBtnEdit: #4e56c4;
-$colorBtnDelete: rgb(187, 0, 0);
+$colorBtnEdit: #000caf70;
+$colorBtnDelete: rgba(128, 0, 0, 0.553);
 $colorBtnCancel: #e3ab00;
-$colorBtnSave: rgb(0, 139, 88);
+$colorBtnSave: rgba(0, 129, 82, 0.665);
 $colorDisabled: #cbcbcb;
 $colorBtnKnownWord: rgb(0, 174, 130);
 
@@ -31,9 +31,9 @@ $colorDisabledBorder: rgb(203, 203, 203);
 $colorBtnKnownWordBorder: rgb(0, 68, 43);
 
 $colorBtnEditLight: #9ca3ff;
-$colorBtnDeleteLight: rgb(255, 99, 99);
+$colorBtnDeleteLight: rgb(235, 38, 38);
 $colorBtnCancelLight: #ffe364;
-$colorBtnSaveLight: rgb(2, 221, 140);
+$colorBtnSaveLight: rgb(0, 224, 142);
 $colorBtnKnownWordLight: rgb(237, 255, 248);
 
 @mixin font($ff, $fs, $fc, $fw) {
@@ -48,12 +48,17 @@ $colorBtnKnownWordLight: rgb(237, 255, 248);
   align-items: $ai;
 }
 @mixin _laptop {
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     @content;
   }
 }
 @mixin _tablet {
   @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin _intermediate {
+  @media (max-width: 580px) {
     @content;
   }
 }

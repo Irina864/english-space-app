@@ -1,20 +1,49 @@
 import Item from '../Item/Item';
 import Input from '../Input/Input';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 import './Table.css';
+import React, { useContext, useState, useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
+import { wordStoreContext } from '../../store/store';
 import { useNavigate } from 'react-router-dom';
 
-function Table(props) {
-  const data = props.data;
+const Table = observer(() => {
+  const dictionary = useContext(wordStoreContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await dictionary.loadDictionary();
+        setIsLoading(dictionary.loading);
+        setError(dictionary.error);
+      } catch (error) {
+        setError(true);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [dictionary]);
+
   const navigate = useNavigate();
   const handleCardClick = (index) => {
     navigate(`/cards/${index}`);
   };
-  return (
+
+  return isLoading ? (
+    <Loading />
+  ) : error ? (
+    <Error />
+  ) : (
     <main className="table">
-      <Input />
-      {data.map((i, index) => (
+      <Input forAdd={true} />
+      {dictionary.words.map((i, index) => (
         <Item
           key={i.id}
+          id={i.id}
           index={index}
           english={i.english}
           transcription={i.transcription}
@@ -26,5 +55,6 @@ function Table(props) {
       ))}
     </main>
   );
-}
+});
+
 export default Table;

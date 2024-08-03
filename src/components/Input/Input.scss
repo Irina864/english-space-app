@@ -3,7 +3,7 @@
 
 .input {
   display: grid;
-  grid-template-columns: 85% 15%;
+  grid-template-columns: 90% 10%;
   align-items: center;
   padding: 0.7rem 0.5rem;
   border-top: 1px solid $colorBorderDark;
@@ -18,9 +18,9 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1%;
-    @include _mobile {
+    @include _intermediate {
       grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-      gap: 0.1rem;
+      gap: 0.15rem;
     }
     .input__item {
       width: 90%;
@@ -32,6 +32,9 @@
         font-size: 1.15rem;
       }
       @include _tablet {
+        font-size: 1rem;
+      }
+      @include _mobile {
         font-size: 0.8rem;
       }
     }
@@ -44,6 +47,8 @@
   .input__buttons {
     display: flex;
     @include flex(row, space-around, center);
+    flex-wrap: wrap;
+    gap: 0.25rem;
     @include _mobile {
       gap: 0.1rem;
     }

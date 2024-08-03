@@ -1,5 +1,5 @@
-import { forwardRef } from 'react';
 import './Button.css';
+import { forwardRef } from 'react';
 
 const Button = forwardRef(({ theme, nameButton, onClick, disabled }, ref) => (
   <button

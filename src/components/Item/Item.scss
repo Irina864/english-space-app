@@ -3,7 +3,7 @@
 
 .item {
   display: grid;
-  grid-template-columns: 85% 15%;
+  grid-template-columns: 90% 10%;
   align-items: center;
   padding: 0.7rem 0.5rem;
   border-top: 1px solid $colorBorderDark;
@@ -16,8 +16,8 @@
   .item__word {
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    @include _mobile {
-      grid-template-columns: repeat(3, 33%);
+    @include _intermediate {
+      grid-template: 35% 65% / repeat(3, 33%);
     }
     .item__item {
       display: flex;
@@ -28,20 +28,25 @@
         font-size: 1.15rem;
       }
       @include _tablet {
+        font-size: 1rem;
+      }
+      @include _intermediate {
         font-size: 0.8rem;
+        &:last-child {
+          grid-area: 1/1/2/4;
+          color: $colorTextMedium;
+        }
       }
       @include _mobile {
-        font-size: 0.7rem;
-        &:last-child {
-          display: none;
-        }
+        font-size: 0.75rem;
       }
     }
   }
   .item__buttons {
     display: flex;
     @include flex(row, space-around, center);
-
+    flex-wrap: wrap;
+    gap: 0.25rem;
     @include _mobile {
       gap: 0.1rem;
     }

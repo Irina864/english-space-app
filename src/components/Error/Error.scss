@@ -1,20 +1,20 @@
 @import '../../template';
 @import '../../variables';
 
-.table {
-  grid-area: 2/1/3/2;
-  margin: 1% 2%;
-  height: auto;
+.serverError {
+  display: flex;
+  @include flex(column, center, center);
   border: 0.2rem solid $colorBorderDark;
   border-radius: 0.5rem;
   background: linear-gradient(
-    90deg,
+    0deg,
     $colorBackgroundCardFirst 0%,
     $colorBackgroundWhite 80%,
     $colorBackgroundCardSecond 100%
   );
-  @include _tablet {
-    margin: 1% 0;
-    border: 0;
+  @include font($font1, 3rem, $colorTextDark, 700);
+  text-align: center;
+  @include _mobile {
+    font-size: 1.5rem;
   }
 }
