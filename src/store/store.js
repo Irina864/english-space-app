@@ -14,7 +14,9 @@ class WordStore {
     this.loading = true;
     this.error = false;
     try {
-      const response = await fetch(`/api/words`);
+      const response = await fetch(
+        `https://itgirlschool.justmakeit.ru/api/words`
+      );
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -31,13 +33,16 @@ class WordStore {
   async addNewWord(newWord) {
     this.loading = true;
     try {
-      const response = await fetch(`/api/words/add`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newWord),
-      });
+      const response = await fetch(
+        `https://itgirlschool.justmakeit.ru/api/words/add`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newWord),
+        }
+      );
       if (response.status === 200) {
         this.words.push(newWord);
         this.loadDictionary();
@@ -53,13 +58,16 @@ class WordStore {
   async updateWord(updatedInfo) {
     this.loading = true;
     try {
-      const response = await fetch(`/api/words/${updatedInfo.id}/update`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedInfo),
-      });
+      const response = await fetch(
+        `https://itgirlschool.justmakeit.ru/api/words/${updatedInfo.id}/update`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedInfo),
+        }
+      );
       if (response.ok) {
         this.words.forEach((word) =>
           word.id === updatedInfo.id ? updatedInfo : word
@@ -77,12 +85,15 @@ class WordStore {
   async removeWord(id) {
     this.loading = true;
     try {
-      const response = await fetch(`/api/words/${id}/delete`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await fetch(
+        `https://itgirlschool.justmakeit.ru/api/words/${id}/delete`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
       if (response.ok) {
         this.words = this.words.filter((word) => word.id !== id);
       } else {
